@@ -1,0 +1,22 @@
+{
+  "name": "tgc-project-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test_phase.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edniaj/tgc-project-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edniaj/tgc-project-1/issues"
+  },
+  "homepage": "https://github.com/edniaj/tgc-project-1#readme",
+  "dependencies": {
+    "axios": "^0.26.0"
+  }
+}
