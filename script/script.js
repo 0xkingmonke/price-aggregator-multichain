@@ -1,12 +1,6 @@
 
 const chartData = async () => {
-
-    let data;
-
-    const readData = (async () => {
-        data = await axios.get('../data.json').then(res => res.data)
-    })
-    await readData()
+    data = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=7').then(res => res.data)
     var options = {
         chart: {
             type: 'candlestick'
