@@ -1,0 +1,12 @@
+div.container {
+    background-color: #1b9bd4;
+}
+
+#navbarTogglerDemo01{
+    background-color: green;
+    display:flex;
+}
+#navbar-buttons{
+    display:flex;
+    background-color: white;
+}
