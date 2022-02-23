@@ -21,6 +21,8 @@ nav {
 
 #nav-right{
     flex:1;
+    display:flex;
+    align-items: flex-end;
     border:purple 1px solid;
 }
 
@@ -38,6 +40,41 @@ nav {
     cursor:pointer;
 }
 
+#main-body{
+    display:flex
+}
+
+#left-body{
+  flex :3;
+  border: 2px solid gold;
+  background-color: gold;
+  height: 100em;
+}
+
+#right-body{
+    flex:2;
+    border: 2px solid purple;
+    background-color: purple;
+    display:flex;
+}
+
+#search-box{
+    width: 576px;
+    height: 50em;
+    margin: 0 auto;
+    margin-top: 2em;
+    background-color: white;
+    border-radius: 3%;
+    resize: none;
+}
+
+#swap-box{
+    width:80%;
+    height:5em;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+
 @media only screen and (max-width: 600px) {
     #navbar-mobile{
         background-color: green;
@@ -49,3 +86,4 @@ nav {
         transition: transform 0.25s ease-in-out;
       }
   }
+
