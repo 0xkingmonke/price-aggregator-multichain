@@ -1,10 +1,8 @@
 let tokenJson = {
-    bitcoin:'',
-    eth:'',
-    usdt:'',
-    usdc:'',
+    ethereum:'',
+    tether:'',
+    'usd-coin':'',
     dai:'',
-    wbtc:'',
     nusd:'',
     'liquity-usd':'',
     binancecoin:'',

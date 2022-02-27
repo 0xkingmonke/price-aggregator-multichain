@@ -35,16 +35,50 @@
         </div>
         <div id="right-body">
             <div id="search-box">
+
+                <!-- Sell menu -->
                 <div class="swap-box" style="background-color : yellow">
                     <div class="swap-box-top">
-                        <div class="swap-box-left">a</div>
-                        <div class="swap-box-right">b</div>
+                        <div class="swap-box-left" id="estimate-sell-price">Price</div> <!-- Estimate price from coingecko api-->
+                        <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
                     </div>
                     <div class="swap-box-btm">
                         <div class="swap-box-left">
-                            <div class="dropdown">
-                                <div class="btn btn-primary" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                    style="height:100%" style="border:none;"> bitcoin </div>
+                            <!-- Drop down -->
+                            <div class="btn-group dropdown dropdown-sell">
+
+                                <div class="btn btn-primary dropdown-toggle dropdown-sell" type=""
+                                    id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
+                                    style="height:100%" style="border:none;"> ethereum
+                                </div>
+                                <!-- Options -->
+                                <ul class="dropdown-menu dropdown-sell-menu">
+                                    <!-- Drop sell absolute-->
+                                    <li><input type="text" id="sell-search"></li>
+                                    <div id="sell-dropdown">
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swap-box-right">
+                            <input type="text" style="width:100%;height:100%; font-size:3em" id='sell-amount'> <!-- Input text -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End of sell menu -->
+
+                <!-- Buy menu -->
+                <div class="swap-box" style="background-color : yellow">
+                    <div class="swap-box-top">
+                        <div class="swap-box-left" id="estimate-buy-price">Price</div> <!-- Estimate price from coingecko api-->
+                        <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
+                    </div>
+                    <div class="swap-box-btm">
+                        <div class="swap-box-left">
+                            <!-- Drop down -->
+                            <div class="btm-group dropdown">
+                                <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" style="height:100%" style="border:none;"> ethereum </div>
                                 <ul class="dropdown-menu">
                                     <li><input type="text" id="buy-search"></li>
                                     <div id="buy-dropdown">
@@ -57,29 +91,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="swap-box" style="background-color : yellow">
-                    <div class="swap-box-top">
-                        <div class="swap-box-left">a</div>
-                        <div class="swap-box-right">b</div>
-                    </div>
-                    <div class="swap-box-btm">
-                        <div class="swap-box-left">
-                            <div class="dropdown">
-                                <div class="btn" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                    style="height:100%" style="border:none"> Dropdown </div>
-                                <ul class="dropdown-menu" id="buy-dropdown">
-                                    <li><input type="text"></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swap-box-right">
-                            <input type="text" style="width:100%;height:50%;" id='buy-amount'>
-                        </div>
-                    </div>
-                </div>
+                <!-- End of buy menu -->
+
+
             </div>
 
         </div>
