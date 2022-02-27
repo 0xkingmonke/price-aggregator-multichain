@@ -1,10 +1,5 @@
-// const fs = require('fs')
-// const axios = require('axios')
+a = [3,212,3,321,32,11]
 
-// const writeData = async () => {
-//     data = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=7').then(res => res.data)
-// } 
+a.sort((b,c) => b-c)
 
-// // writeData()
-// test = new Date(1644883200000)
-// console.log(test)
+console.log(a)
