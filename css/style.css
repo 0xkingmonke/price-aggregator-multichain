@@ -55,7 +55,8 @@ nav {
     flex:2;
     border: 2px solid purple;
     background-color: purple;
-    display:flex;
+    /* display:flex; */
+    /* place-content:center; */
 }
 
 #search-box{
@@ -63,28 +64,50 @@ nav {
     height: 50em;
     margin: 0 auto;
     margin-top: 2em;
-    border: 1px solid white ;
+    border: 5px solid blue ;
     background-color: white;
     border-radius: 3%;
     resize: none;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-#swap-box{
-    width:80%;
+.swap-box{
+    display:flex;
+    flex-direction:column;
+    border: 1px solid orange;
+    background-color: gold;
+    height:20%;
+}
+.swap-box-top{
+    flex:1;
+    width:90%;
+    margin: 0 auto;
+    background-color: aqua;
+    display:flex;
+    flex-direction: row;
+}
+.swap-box-btm{
+    flex:4;
+    background-color: green;
+    width:90%;
     height:5em;
     margin: 0 auto;
     border: 1px solid black;
+    border-radius: 1em;
     display:flex;
 }
 
-#swap-box-left{
+.swap-box-left{
     flex:1;
     border:1px solid green
 }
-#swap-box-right{
+.swap-box-right{
     flex:3;
     border:1px solid blue;
 }
+
 @media only screen and (max-width: 600px) {
     #navbar-mobile{
         background-color: green;

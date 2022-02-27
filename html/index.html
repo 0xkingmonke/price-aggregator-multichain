@@ -16,9 +16,9 @@
         <nav id="navbar" class="container">
             <div id="nav-logo">Pachinko</div>
             <div id="nav-function" style="display:flex; justify-content: space-around; align-items: flex-end;">
-                    <a href="/swap" class="btn btn-primary">Swaps</a>
-                    <a href="/bridge" class="btn btn-primary" >Bridge</a>
-                    <a href="/guestbook" class="btn btn-primary">Guest book</a>
+                <a href="/swap" class="btn btn-primary">Swaps</a>
+                <a href="/bridge" class="btn btn-primary">Bridge</a>
+                <a href="/guestbook" class="btn btn-primary">Guest book</a>
             </div>
             <div id="nav-right">
 
@@ -27,45 +27,72 @@
         </nav>
     </div>
     <div class='container-fluid' id="navbar-mobile">
-        a
+
     </div>
     <div id="main-body">
         <div id="left-body">
-
+            <div id="chart"></div>
         </div>
-        <div id="right-body" >
-            
+        <div id="right-body">
             <div id="search-box">
-                
-                <div id="swap-box">
-                    <div id="swap-box-left">
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-                              Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><input type="text"></li>
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </div>
+                <div class="swap-box" style="background-color : yellow">
+                    <div class="swap-box-top">
+                        <div class="swap-box-left">a</div>
+                        <div class="swap-box-right">b</div>
                     </div>
-                    <div id="swap-box-right">
-                        <input type="text" style="width:100%;height:100%">
+                    <div class="swap-box-btm">
+                        <div class="swap-box-left">
+                            <div class="dropdown">
+                                <div class="btn" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                    style="height:100%" style="border:none"> Dropdown </div>
+                                <ul class="dropdown-menu" id="buy-dropdown">
+                                    <li><input type="text"></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swap-box-right">
+                            <input type="text" style="width:100%;height:50%;" id='buy-amount'>
+                        </div>
+                    </div>
+                </div>
+                <div class="swap-box" style="background-color : yellow">
+                    <div class="swap-box-top">
+                        <div class="swap-box-left">a</div>
+                        <div class="swap-box-right">b</div>
+                    </div>
+                    <div class="swap-box-btm">
+                        <div class="swap-box-left">
+                            <div class="dropdown">
+                                <div class="btn" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                    style="height:100%" style="border:none"> Dropdown </div>
+                                <ul class="dropdown-menu" id="buy-dropdown">
+                                    <li><input type="text"></li>
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="swap-box-right">
+                            <input type="text" style="width:100%;height:50%;" id='buy-amount'>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.33.1/apexcharts.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.min.js"></script>
-    <script src="../script/data.js"></script>
-    <script src="../script/script.js"></script>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.33.1/apexcharts.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.min.js"></script>
+        <script src="../script/data.js"></script>
+        <script src="../script/script.js"></script>
 </body>
 
 </html>
