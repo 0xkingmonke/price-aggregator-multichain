@@ -1,3 +1,4 @@
+
 let tokenJson = {
     ethereum:'',
     tether:'',
@@ -21,4 +22,9 @@ getTokenId = async () => {
     rawData = rawData.map(res => res.id)
 }
 
+async function test() {
+    rawdata = await axios.get('../token.json').then(res => res.data)
+    console.log(rawdata)
+}
+test()      
 getTokenId()
