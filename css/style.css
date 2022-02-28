@@ -52,22 +52,22 @@ nav {
   flex :3;
   border: 2px solid gold;
   background-color: gold;
-  height: 100vh;
+  height: 120vh;
   display:flex;
   flex-direction: column;
-  
+
 }
 
 #right-body{
     flex:2;
     border: 2px solid purple;
     background-color: purple;
-    height:100vh
+    height:120vh
 }
 
 #search-box{
     width: 576px;
-    height: 90%;
+    height: 80vh;
     margin: 0 auto;
     margin-top: 2em;
     border: 5px solid blue ;

@@ -9,8 +9,12 @@ async function generateChart(ticker,numberOfDay,DivID) { //numberOfDay ={(1/7/14
             },
             series: [{
                 data: data
-            }]
+            }],
+            xaxis:{
+                type: 'datetime'
+            }
         }
+        document.querySelector(DivID).innerHTML = ''
         var chart = new ApexCharts(document.querySelector(DivID), options)
         chart.render()
     }
