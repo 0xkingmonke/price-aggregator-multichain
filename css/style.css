@@ -40,6 +40,10 @@ nav {
     cursor:pointer;
 }
 
+#chart{
+    height: 20vh;
+}
+
 #main-body{
     display:flex
 }
@@ -48,20 +52,22 @@ nav {
   flex :3;
   border: 2px solid gold;
   background-color: gold;
-  height: 100em;
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  
 }
 
 #right-body{
     flex:2;
     border: 2px solid purple;
     background-color: purple;
-    /* display:flex; */
-    /* place-content:center; */
+    height:100vh
 }
 
 #search-box{
     width: 576px;
-    height: 50em;
+    height: 90%;
     margin: 0 auto;
     margin-top: 2em;
     border: 5px solid blue ;

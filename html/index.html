@@ -31,7 +31,12 @@
     </div>
     <div id="main-body">
         <div id="left-body">
-            <div id="chart"></div>
+            <div  style='width: 50vw; flex:1' >
+                <div id="sell-chart"></div>
+            </div>
+            <div  style='width: 50vw; flex:1' >
+                <div id="buy-chart"></div>
+            </div>
         </div>
         <div id="right-body">
             <div id="search-box">
@@ -39,7 +44,8 @@
                 <!-- Sell menu -->
                 <div class="swap-box" style="background-color : yellow">
                     <div class="swap-box-top">
-                        <div class="swap-box-left" id="estimate-sell-price">Price</div> <!-- Estimate price from coingecko api-->
+                        <div class="swap-box-left" id="estimate-sell-price">Price</div>
+                        <!-- Estimate price from coingecko api-->
                         <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
                     </div>
                     <div class="swap-box-btm">
@@ -61,7 +67,8 @@
                             </div>
                         </div>
                         <div class="swap-box-right">
-                            <input type="text" style="width:100%;height:100%; font-size:3em" id='sell-amount'> <!-- Input text -->
+                            <input type="text" style="width:100%;height:100%; font-size:3em" id='sell-amount'>
+                            <!-- Input text -->
                         </div>
                     </div>
                 </div>
@@ -70,7 +77,8 @@
                 <!-- Buy menu -->
                 <div class="swap-box" style="background-color : yellow">
                     <div class="swap-box-top">
-                        <div class="swap-box-left" id="estimate-buy-price">Price</div> <!-- Estimate price from coingecko api-->
+                        <div class="swap-box-left" id="estimate-buy-price">Price</div>
+                        <!-- Estimate price from coingecko api-->
                         <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
                     </div>
                     <div class="swap-box-btm">
@@ -87,7 +95,7 @@
                             </div>
                         </div>
                         <div class="swap-box-right">
-                            <input type="text" style="width:100%;height:50%;" id='buy-amount'>
+                            <input type="text" style="width:100%;height:100%;font-size:3em" id='buy-amount'>
                         </div>
                     </div>
                 </div>

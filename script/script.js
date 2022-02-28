@@ -1,5 +1,21 @@
 
 // tokenID, tokenList is curated from data.js
+async function generateChart(ticker,numberOfDay,DivID) { //numberOfDay ={(1/7/14/30/90/180/365/max}
+    const chartData = async () => {//https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=1
+        data = await axios.get(`https://api.coingecko.com/api/v3/coins/${ticker}/ohlc?vs_currency=usd&days=${numberOfDay}`).then(res => res.data)
+        var options = {
+            chart: {
+                type: 'candlestick'
+            },
+            series: [{
+                data: data
+            }]
+        }
+        var chart = new ApexCharts(document.querySelector(DivID), options)
+        chart.render()
+    }
+    chartData()
+}
 
 async function updateEstimatePrice(ticker, divID) {
     price = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${ticker}&vs_currencies=usd`).then(res => res.data[ticker])
@@ -22,6 +38,7 @@ function updateSellDropDown(targetValue) {
             console.log(i)
             document.querySelector('#dropdownMenuButton2').innerHTML = i // Update the button value
             updateEstimatePrice(i,'#estimate-sell-price')
+            generateChart(i,7,'#sell-chart')
         })
 
         parentElement.appendChild(childElement)
@@ -42,6 +59,7 @@ function updateBuyDropDown(targetValue) {
             console.log(i)
             document.querySelector('#dropdownMenuButton1').innerHTML = i
             updateEstimatePrice(i,'#estimate-buy-price')
+            generateChart(i,7,'#buy-chart')
         })
         parentElement.appendChild(childElement)
     }
@@ -58,6 +76,9 @@ function updateEstimateBuyValue(amount) {
     estimateValue = estimatePrice * amount
     document.querySelector('#estimate-buy-value').innerHTML = estimateValue
 }
+
+
+
 
 document.querySelector('#buy-search').addEventListener('input', (event) => {  // Update dropdown menu for sell side
     updateBuyDropDown(event.target.value)
@@ -79,21 +100,7 @@ document.querySelector('#buy-amount').addEventListener('input', (event) => { //U
 
 
 
-const chartData = async () => {
-    data = await axios.get('https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=7').then(res => res.data)
-    var options = {
-        chart: {
-            type: 'candlestick'
-        },
-        series: [{
-            data: data
-        }]
-    }
-    var chart = new ApexCharts(document.querySelector("#chart"), options)
-    chart.render()
-}
 
-chartData()
 
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM content loaded : Success')
@@ -101,4 +108,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateSellDropDown('')
     updateEstimatePrice('ethereum', '#estimate-sell-price')
     updateEstimatePrice('ethereum', '#estimate-buy-price')
+    generateChart('ethereum',7,'#sell-chart')
+    generateChart('ethereum',7,'#buy-chart')
 });
