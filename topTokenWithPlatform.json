@@ -12,7 +12,8 @@
         "platforms": {
             "ethereum": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
             "optimistic-ethereum": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-            "arbitrum-one": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+            "arbitrum-one": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+            "avalanche": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB"
         }
     },
     "Tether": {
