@@ -79,4 +79,7 @@ function updateEstimateBuyValue(amount) {
     estimateValue = estimatePrice * amount
     document.querySelector('#estimate-buy-value').innerHTML = estimateValue
 }
-//document.getElementById('graph-button-id').click() to toggle click
+
+function clickGraph() {
+    document.getElementById('graph-button-id').click()
+}

@@ -37,5 +37,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateEstimatePrice('Ethereum', '#estimate-buy-price')
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
-    document.getElementById('graph-button-id').click() // test
+    clickGraph() // testing phase for routing
 })

@@ -53,7 +53,8 @@ nav {
 }
 
 #search-box {
-    width: 576px;
+    min-width: 576px;
+    max-width: 80%;
     height: 80vh;
     margin: 0 auto;
     margin-top: 2em;
