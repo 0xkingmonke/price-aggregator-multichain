@@ -38,4 +38,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
     clickGraph() // testing phase for routing
+    checkQuotes("Avalanche",'Ethereum')
 })

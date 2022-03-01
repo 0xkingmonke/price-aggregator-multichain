@@ -136,7 +136,7 @@ nav {
 
 #router-body {
     flex: 3;
-    background-color: blue;
+    background-color: lightgray;
     height: 90vh;
     display: flex;
     transform: translate(100%,-100%);
@@ -146,6 +146,7 @@ nav {
 }
 
 #placeholder-body {
+    display: flex;
     flex: 2;
     min-width: 576px;
     resize: none;
