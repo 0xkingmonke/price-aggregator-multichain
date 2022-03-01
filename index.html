@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <div style="display:flex">
+        <!-- Navbar-->
         <nav id="navbar" class="container">
             <div id="nav-logo">Pachinko</div>
             <div id="nav-function" style="display:flex; justify-content: space-around; align-items: flex-end;">
@@ -26,19 +26,18 @@
             </div>
         </nav>
     </div>
-    <div class='container-fluid' id="navbar-mobile">
-
-    </div>
     <div id="main-body">
         <div id="left-body">
-            <div  style='width: 50vw;height:35vh; flex:1; border:1px solid red;margin:auto' >
-                <div id="sell-chart"></div>
+            <div class=chart id="sell-chart">
             </div>
-            <div  style='width: 50vw;height:35vh; flex:1; border:1px solid blue;margin:auto' >
-                <div id="buy-chart"></div>
+            <div class="chart" id="buy-chart">
             </div>
         </div>
         <div id="right-body">
+            <div id="graph-button">     
+                <button class="btn btn-danger" id="graph-button-id">Graph</button>
+                <!-- Toggle graph (SPA)-->
+            </div>
             <div id="search-box">
 
                 <!-- Sell menu -->
@@ -53,9 +52,7 @@
                             <!-- Drop down -->
                             <div class="btn-group dropdown dropdown-sell">
 
-                                <div class="btn btn-primary dropdown-toggle dropdown-sell" type=""
-                                    id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
-                                    style="height:100%" style="border:none;"> Avalanche
+                                <div class="btn btn-primary dropdown-toggle dropdown-sell" type="" id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown" style="height:100%" style="border:none;"> USD Coin
                                 </div>
                                 <!-- Options -->
                                 <ul class="dropdown-menu dropdown-sell-menu">
@@ -85,8 +82,7 @@
                         <div class="swap-box-left">
                             <!-- Drop down -->
                             <div class="btm-group dropdown">
-                                <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" style="height:100%" style="border:none;"> Ethereum </div>
+                                <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown" style="height:100%" style="border:none;"> Ethereum </div>
                                 <ul class="dropdown-menu">
                                     <li><input type="text" id="buy-search"></li>
                                     <div id="buy-dropdown">
@@ -101,20 +97,31 @@
                 </div>
                 <!-- End of buy menu -->
 
-
             </div>
 
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.33.1/apexcharts.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.min.js"></script>
-        <script src="./script/data.js"></script>
-        <script src="./script/Util.js"></script>
-        <script src="./script/script.js"></script>
+    <div>
+        <div id="router">
+            <div id="router-body">
+                <div style="background-color:orange; width:50%">
+                </div>    
+            </div>
+            <div id="placeholder-body"> </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.33.1/apexcharts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserFS/2.0.0/browserfs.min.js"></script>
+    <script src="./script/data.js"></script>
+    <script src="./script/Util.js"></script>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>

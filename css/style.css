@@ -1,130 +1,177 @@
 nav {
     background-color: lightblue;
     border: black 1px solid;
-    height:5em;
-    display:flex;
+    height: 5em;
+    display: flex;
     width: 0 auto;
 }
 
-#nav-logo{
-    flex:1;
-    border:blue 2px solid;
+#nav-logo {
+    flex: 1;
+    border: blue 2px solid;
 }
 
-#nav-function{
-    flex:3;
-    border:green 2px solid;
-    display:flex; 
-    justify-content: space-around; 
+#nav-function {
+    flex: 3;
+    border: green 2px solid;
+    display: flex;
+    justify-content: space-around;
     align-items: flex-end;
 }
 
-#nav-right{
-    flex:1;
-    display:flex;
+#nav-right {
+    flex: 1;
+    display: flex;
     align-items: flex-end;
-    border:purple 1px solid;
+    border: purple 1px solid;
 }
 
-#nav-collapse{
-    display:none;
+#nav-collapse {
+    display: none;
 }
 
-#navbar-mobile{
-    position:fixed;
-    top:0px;
-    left:0px;
+#navbar-mobile {
+    position: fixed;
+    top: 0px;
+    left: 0px;
     transform: translateX(100%);
     border: 2px solid orange;
-    height:5em;
-    cursor:pointer;
+    height: 5em;
+    cursor: pointer;
 }
 
-#chart{
-    height: 20vh;
+.chart {
+    height: 100%;
+    width: 100%;
+    border: 1px solid blue;
+    margin-right: 10%;
+    margin-left: auto;
 }
 
-#main-body{
-    display:flex
+#main-body {
+    display: flex;
 }
 
-#left-body{
-  flex :3;
-  border: 2px solid gold;
-  background-color: gold;
-  height: 120vh;
-  display:flex;
-  flex-direction: column;
-
-}
-
-#right-body{
-    flex:2;
-    border: 2px solid purple;
-    background-color: purple;
-    height:120vh
-}
-
-#search-box{
+#search-box {
     width: 576px;
     height: 80vh;
     margin: 0 auto;
     margin-top: 2em;
-    border: 5px solid blue ;
+    border: 5px solid blue;
     background-color: white;
     border-radius: 3%;
     resize: none;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.swap-box{
-    display:flex;
-    flex-direction:column;
+.swap-box {
+    display: flex;
+    flex-direction: column;
     border: 1px solid orange;
     background-color: gold;
-    height:20%;
+    height: 20%;
 }
-.swap-box-top{
-    flex:1;
-    width:90%;
+
+.swap-box-top {
+    flex: 1;
+    width: 90%;
     margin: 0 auto;
     background-color: aqua;
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
-.swap-box-btm{
-    flex:4;
+
+.swap-box-btm {
+    flex: 4;
     background-color: green;
-    width:90%;
-    height:5em;
+    width: 90%;
+    height: 5em;
     margin: 0 auto;
     border: 1px solid black;
     border-radius: 1em;
-    display:flex;
+    display: flex;
 }
 
-.swap-box-left{
-    flex:1;
-    border:1px solid green;
-}
-.swap-box-right{
-    flex:3;
-    border:1px solid blue;
+.swap-box-left {
+    flex: 1;
+    border: 1px solid green;
 }
 
+.swap-box-right {
+    flex: 3;
+    border: 1px solid blue;
+}
 
+#graph-button {
+    position: relative;
+    top: 50%;
+}
 
-@media only screen and (max-width: 600px) {
-    #navbar-mobile{
+#router {
+    display: flex;
+    justify-content: column;
+    overflow:hidden;
+}
+
+#left-body {
+    flex: 3;
+    border: 5px solid green;
+    background-color: gold;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease-in-out;
+    
+}
+
+#right-body {
+    flex: 2;
+    border: 2px solid purple;
+    background-color: purple;
+    height: 90vh;
+}
+
+#router-body {
+    flex: 3;
+    background-color: blue;
+    height: 90vh;
+    display: flex;
+    transform: translate(100%,-100%);
+    z-index: -1;
+    transition: transform 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+#placeholder-body {
+    flex: 2;
+    min-width: 576px;
+    resize: none;
+    background-color: green;
+    transform: translateY(-100%);
+    z-index: -1;
+}
+
+@media only screen and (max-width:1500px) {
+    /* #left-body {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease-in-out;
+    } */
+}
+
+@media only screen and (max-width: 1000px) {
+    #navbar-mobile {
         background-color: green;
-        transform:translateX(0%);
-        transition: transofmr 0.55s ease-in-out
+        transform: translateX(0%);
+        transition: transform 0.55s ease-in-out
     }
     nav {
         transform: translateX(100%);
         transition: transform 0.25s ease-in-out;
-      }
-  }
-
+    }
+    /* #left-body {
+        transform: translateX(0%);
+        transition: transform 0.25s ease-in-out;
+    } */
+}
