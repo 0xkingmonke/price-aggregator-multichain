@@ -17,7 +17,7 @@ const fetchTopTokens = async () => { // 1. Fetch data for top 100 tokens
     platformData = fs.readFileSync('tokenWithPlatform.json')
 }
 
-const fetchTokenPlatform = async() => {
+const fetchTokenPlatform = async() => { // 2. Sync data such that every top 100 tokens have platform addresses
     tokenPlatformData = JSON.parse(fs.readFileSync('tokenWithPlatform.json'))
     newData = JSON.parse(fs.readFileSync("newData.json"))
     // console.log(tokenPlatformData)
@@ -30,4 +30,4 @@ const fetchTokenPlatform = async() => {
     fs.writeFileSync('topTokenWithPlatform.json', JSON.stringify(newData))
 }
 //fetchTopTokens()
-fetchTokenPlatform()
+// fetchTokenPlatform()
