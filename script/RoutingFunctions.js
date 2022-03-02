@@ -49,7 +49,7 @@ function convertDecimalsToAmount(token, amount) {
     amount = amount + ''
 
     if (specialTokenDecimal.hasOwnProperty(token)) {
-        amountInString = `${ amount.slice(0, amount.length - specialTokenDecimal[token] )}.${amount.slice(amount.length - specialTokenDecimal[token],)}`
+        amountInString = `${amount.slice(0, amount.length - specialTokenDecimal[token])}.${amount.slice(amount.length - specialTokenDecimal[token],)}`
         console.log(amount.length)
     } else {
         amountInString = `${amount.slice(0, amount.length - 18)}.${amount.slice(amount.length - 18,)}`
@@ -62,44 +62,109 @@ async function getDataByChain(chainAddress, addressTokenA, addressTokenB, amount
     return data
 }
 
-function firstSmallerThanSecond(a,b) {
-    if(a.length > b.length) return false
-    if(b.length > a.length) return true
+function firstSmallerThanSecond(a, b) {
+    if (a.length > b.length) return false
+    if (b.length > a.length) return true
 
-    for(let index in a) {
-        if (a.slice(index) > b.slice(index) ) return false
-        if (b.slice(index) > a.slice(index) ) return true
+    for (let index in a) {
+        if (a.slice(index) > b.slice(index)) return false
+        if (b.slice(index) > a.slice(index)) return true
     }
 
     return true //Extremely unlikely that both trades at the same price
 
 }
 
-function sortBigNumbers(list) {    
-    if (list.length <=1) return list
-    for(let index =0; index< list.length-1; index++)  { // max list.length is 6
-        for(let index2 =0; index2 < list.length-1; index2++)
-        if ( firstSmallerThanSecond(list[index2]['toTokenAmount'], list[index2+1]['toTokenAmount']) ) {
-            let temp  = list[index2]
-            list[index2] = list[index2 +1]
-            list[index2+1] = temp
-        }
+function sortBigNumbers(list) {
+    if (list.length <= 1) return list
+    for (let index = 0; index < list.length - 1; index++) { // max list.length is 6
+        for (let index2 = 0; index2 < list.length - 1; index2++)
+            if (firstSmallerThanSecond(list[index2]['toTokenAmount'], list[index2 + 1]['toTokenAmount'])) {
+                let temp = list[index2]
+                list[index2] = list[index2 + 1]
+                list[index2 + 1] = temp
+            }
     }
     return list
-}   
+}
 
 async function displayPrice(list) {
     parentElement = document.querySelector('#show-price')
     for (let route of list) {
         childElement = document.createElement('div')
-        childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}| Price:$${route['fromTokenAmount']/route['toTokenAmount']}`
+        childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}| Price:$${route['fromTokenAmount'] / route['toTokenAmount']}`
         parentElement.appendChild(childElement)
     }
 }
 
-async function displayRoute(list){
+function drawSubRoutes(dataList, nameList, divID) {
+    var options = {
+        series: [{
+            data: dataList
+        }],
+        chart: {
+            type: 'bar',
+            height: '50%'
+        },
+        plotOptions: {
+            bar: {
+                borderRadius: 4,
+                horizontal: true,
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            categories: nameList,
+        }
+    };
+    console.log(`#${divID}`)
+    return new ApexCharts(document.querySelector(`#${divID}`), options)
+}
+
+async function displayRoute(route) {  //#show-routes
+
+    graphList = []
+    grandParentElement = document.querySelector('#show-routes')
+
+    eachRouteIndex = 0
+    for (let mainSubRouteIndex in route['protocols']) {
+        parentElement = document.createElement('div')
+        parentElement.className = 'mainSubRoute'
+
+        parentElement.setAttribute("id", `mainSubRoute${mainSubRouteIndex}`)
+        grandParentElement.appendChild(parentElement)
+        parentElement.style.border = '5px solid yellow'
+
+        dataList = []
+        nameList = []
+
+        for (let subRoute of route['protocols'][mainSubRouteIndex]) { //Added list of routes that subroute took
+            for (let eachRoute of subRoute) {
+                dataList.push(eachRoute['part'])
+                nameList.push(eachRoute['name'])
+            }
+            kidElement = document.createElement('div')
+            kidElement.className = 'eachRoute'
+            kidElement.setAttribute("id", `eachRoute${eachRouteIndex}`)
+            parentElement.appendChild(kidElement)
+
+            drawRouteObject = drawSubRoutes(dataList, nameList, `eachRoute${eachRouteIndex}`)
+            graphList.push(drawRouteObject)
+            eachRouteIndex++
+        }
+    }
+
+
+    for (let item of graphList) {
+        item.render()
+    }
 
 }
+
+
+
 async function checkQuotes(tokenA, tokenB, amount) {
     commonPlatforms = checkPlatforms(tokenA, tokenB)
     promiseList = []
@@ -124,6 +189,7 @@ async function checkQuotes(tokenA, tokenB, amount) {
         value['toTokenAmount'] = convertDecimalsToAmount(tokenB, value['toTokenAmount'])
     })
     displayPrice(routeList)
+    displayRoute(routeList[0])
 }
 
 

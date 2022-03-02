@@ -116,6 +116,14 @@ nav {
     overflow:hidden;
 }
 
+.mainSubRoute{
+    flex:1;
+    display:flex;
+    flex-direction: row;
+}
+.eachRoute{
+    flex:1
+}
 
 #router-content{
     display:flex;
@@ -129,6 +137,9 @@ nav {
 
 #show-routes{
     flex:4;
+    display:flex;
+    flex-direction: column;
+
 }
 
 #left-body {

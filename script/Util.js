@@ -1,13 +1,13 @@
  // tokenID, tokenList is curated from data.js
 async function generateChart(ticker, numberOfDay, DivID) { //numberOfDay ={(1/7/14/30/90/180/365/max}
     ticker = tokenJson[ticker]['id']
-    const chartData = async () => { //https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=1
+    const chartData = async () => { // i.e. https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=1
         data = await axios.get(`https://api.coingecko.com/api/v3/coins/${ticker}/ohlc?vs_currency=usd&days=${numberOfDay}`).then(res => res.data)
         var options = {
             chart: {
                 type: 'candlestick',
                 width: '80%',
-                height: '45%'
+                height: '40%'
             },
             series: [{
                 data: data
