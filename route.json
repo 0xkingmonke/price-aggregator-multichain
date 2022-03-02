@@ -1,0 +1,55 @@
+{
+    "fromToken": {
+        "symbol": "USDT",
+        "name": "Tether USD",
+        "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "decimals": 6,
+        "logoURI": "https://tokens.1inch.io/0xdac17f958d2ee523a2206206994597c13d831ec7.png"
+    },
+    "toToken": {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "decimals": 18,
+        "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "logoURI": "https://tokens.1inch.io/0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee.png"
+    },
+    "toTokenAmount": "334113565803646205804",
+    "fromTokenAmount": "1000000000000",
+    "protocols": [
+        [
+            [
+                {
+                    "name": "UNISWAP_V3",
+                    "part": 14,
+                    "fromTokenAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "toTokenAddress": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                },
+                {
+                    "name": "CURVE_V2",
+                    "part": 86,
+                    "fromTokenAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "toTokenAddress": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                }
+            ]
+        ],
+        [
+            [
+                {
+                    "name": "DODO",
+                    "part": 100,
+                    "fromTokenAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+                    "toTokenAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+                }
+            ],
+            [
+                {
+                    "name": "UNISWAP_V3",
+                    "part": 100,
+                    "fromTokenAddress": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+                    "toTokenAddress": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+                }
+            ]
+        ]
+    ],
+    "estimatedGas": 1058642
+}

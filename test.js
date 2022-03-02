@@ -1,17 +1,29 @@
-x = {
-    "id": "ethereum",
-    "symbol": "eth",
-    "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
-    "platforms": {
-        "ethereum": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        "optimistic-ethereum": "0x4200000000000000000000000000000000000006",
-        "arbitrum-one": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        "avalanche": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        "binance-smart-chain": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        "polygon-pos": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+a = ['56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','341234123454123412341251234123412341234','62345123412341234123412341234','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','34123412344123412341251234123412341234','62345123412341234123412341234','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','34123412344123412341251234123412341234','62345123412341234123412341234','562346435754687456785679865785678653456345656234643575468745678567986578567865345563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454']
+
+function firstSmallerThanSecond(a,b) {
+    if(a.length > b.length) return false
+    if(b.length > a.length) return true
+
+    for(let index in a) {
+        if (a.slice(index) > b.slice(index) ) return false
+        if (b.slice(index) > a.slice(index) ) return true
     }
+
+    return true //Extremely unlikely that both trades at the same price
+
 }
 
-for(let item in x) {
-    console.log(x[item])
-}
+function sortBigNumbers(list) {    
+    if (list.length <=1) return list
+    for(let index =0; index< list.length-1; index++)  {
+        for(let index2 =0; index2 < list.length-1; index2++)
+        if ( firstSmallerThanSecond(list[index2], list[index2+1]) ) {
+            let temp  = list[index2]
+            list[index2] = list[index2 +1]
+            list[index2+1] = temp
+        }
+    }
+    console.log(list)
+}   
+
+sortBigNumbers(a)

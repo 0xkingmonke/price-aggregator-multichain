@@ -116,6 +116,21 @@ nav {
     overflow:hidden;
 }
 
+
+#router-content{
+    display:flex;
+    flex-direction: column;
+    flex:9;
+}
+
+#show-price {
+    flex:1;
+}
+
+#show-routes{
+    flex:4;
+}
+
 #left-body {
     flex: 3;
     border: 5px solid green;
@@ -135,10 +150,12 @@ nav {
 }
 
 #router-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
     flex: 3;
     background-color: lightgray;
     height: 90vh;
-    display: flex;
     transform: translate(100%,-100%);
     z-index: -1;
     transition: transform 0.4s ease-in-out;

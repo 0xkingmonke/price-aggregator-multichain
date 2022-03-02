@@ -15,16 +15,18 @@ document.querySelector('#buy-amount').addEventListener('input', (event) => { //U
     updateEstimateBuyValue(event.target.value)
 })
 
-document.querySelector('#graph-button').addEventListener('click', () => {
-    if (document.querySelector('#left-body').style.transform == 'translateX(-100%)') {
-        document.querySelector('#left-body').style.transform = 'translateX(0%)'
-        document.querySelector('#router-body').style.transform = 'translate(100%,-100%)'
+document.querySelector('#graph-button-id').addEventListener('click', () => {
+    leftBody = document.querySelector('#left-body')
+    routerBody = document.querySelector('#router-body')
 
+    if (leftBody.style.transform == 'translateX(-100%)') {
+        leftBody.style.transform = 'translateX(0%)'
+        routerBody.style.transform = 'translate(100%,-100%)'
         setTimeout(() => { document.querySelector('#router').style.overflow = 'hidden' }, 400)
     } else {
         document.querySelector('#router').style.overflow = 'visible'
-        document.querySelector('#left-body').style.transform = 'translateX(-100%)'
-        document.querySelector('#router-body').style.transform = 'translate(0%,-100%)'
+        leftBody.style.transform = 'translateX(-100%)'
+        routerBody.style.transform = 'translate(0%,-100%)'
     }
 })
 
@@ -38,5 +40,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
     clickGraph() // testing phase for routing
-    checkQuotes("Tether",'Ethereum',100)
+    checkQuotes("Tether",'Ethereum',1000000)
 })
