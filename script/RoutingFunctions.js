@@ -22,12 +22,16 @@ specialTokenDecimal = {   //self-curated list of tokens with different decimal
 }
 
 function checkPlatforms(tokenA, tokenB) {
+    console.log(tokenJson['USD Coin'])
+    console.log(tokenA)
+    console.log(tokenJson[tokenA])
+    console.log(tokenB)
+    console.log(tokenJson[tokenB])
     commonPlatforms = []
-
     for (let itemA in tokenJson[tokenA]['platforms']) {
         for (let itemB in tokenJson[tokenB]['platforms']) {
 
-            if (itemA == itemB) commonPlatforms.push(itemA)
+            if (itemA == itemB && chainID.hasOwnProperty(itemA)) commonPlatforms.push(itemA)
         }
     }
     return commonPlatforms
@@ -90,6 +94,9 @@ function sortBigNumbers(list) {
 
 async function displayPrice(list) {
     parentElement = document.querySelector('#show-price')
+    parentElement.innerHTML = ''
+    document.querySelector('#buy-amount').value = list[0]['toTokenAmount']
+    updateEstimateBuyValue(list[0]['toTokenAmount'])
     for (let route of list) {
         childElement = document.createElement('div')
         childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}| Price:$${route['fromTokenAmount'] / route['toTokenAmount']}`
@@ -104,7 +111,7 @@ function drawSubRoutes(dataList, nameList, divID) {
         }],
         chart: {
             type: 'bar',
-            height: '50%'
+            height: '100%'
         },
         plotOptions: {
             bar: {
@@ -127,7 +134,7 @@ async function displayRoute(route) {  //#show-routes
 
     graphList = []
     grandParentElement = document.querySelector('#show-routes')
-
+    grandParentElement.innerHTML = ''
     eachRouteIndex = 0
     for (let mainSubRouteIndex in route['protocols']) {
         parentElement = document.createElement('div')

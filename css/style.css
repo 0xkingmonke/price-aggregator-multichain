@@ -67,6 +67,12 @@ nav {
     justify-content: space-around;
 }
 
+#swap-button{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+
 .swap-box {
     display: flex;
     flex-direction: column;

@@ -31,6 +31,14 @@ document.querySelector('#graph-button-id').addEventListener('click', () => {
     }
 })
 
+document.querySelector('#quote-button').addEventListener('click', () => {
+    amount = document.querySelector('#sell-amount').value
+    console.log(amount)
+    tokenA = document.querySelector('#dropdownMenuButton2').innerHTML
+    tokenB = document.querySelector('#dropdownMenuButton1').innerHTML
+    checkQuotes(tokenA,tokenB,amount)
+
+})
 
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM content loaded : Success')
@@ -42,5 +50,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
     clickGraph() // testing phase for routing
-    checkQuotes("Ethereum",'Dai',10000)
+    
 })

@@ -50,11 +50,13 @@ function updateSellDropDown(targetValue) {
 
 }
 
+
+
 function updateBuyDropDown(targetValue) {
     parentElement = document.querySelector('#buy-dropdown')
     parentElement.innerHTML = ''
     for (let item of tokenList) {
-        if (targetValue != item.slice(0, targetValue.length)) {
+        if (targetValue.toUpperCase() != item.slice(0, targetValue.length).toUpperCase() ) {
             continue
         }
         childElement = document.createElement('li')
