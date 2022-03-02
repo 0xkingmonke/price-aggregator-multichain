@@ -34,6 +34,7 @@ function checkPlatforms(tokenA, tokenB) {
             if (itemA == itemB && chainID.hasOwnProperty(itemA)) commonPlatforms.push(itemA)
         }
     }
+    console.log(`common Platforms : ${commonPlatforms}`)
     return commonPlatforms
 }
 
