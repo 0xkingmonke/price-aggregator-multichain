@@ -55,7 +55,6 @@ function convertDecimalsToAmount(token, amount) {
 
     if (specialTokenDecimal.hasOwnProperty(token)) {
         amountInString = `${amount.slice(0, amount.length - specialTokenDecimal[token])}.${amount.slice(amount.length - specialTokenDecimal[token],)}`
-        console.log(amount.length)
     } else {
         amountInString = `${amount.slice(0, amount.length - 18)}.${amount.slice(amount.length - 18,)}`
     }
@@ -183,14 +182,26 @@ async function checkQuotes(tokenA, tokenB, amount) {
         addressTokenA = tokenJson[tokenA]['platforms'][chainName]
         addressTokenB = tokenJson[tokenB]['platforms'][chainName]
         amountInString = convertAmountToDecimals(tokenA, amount)
-        promiseList.push(getDataByChain(chainAddress, addressTokenA, addressTokenB, amountInString))
-    }
+        dataByChain = getDataByChain(chainAddress, addressTokenA, addressTokenB, amountInString).catch(()=> {return })
+        promiseList.push(dataByChain)
+    }   
 
     routeList = await Promise.all(promiseList).then(values => values)
+    routeList = Object.keys(routeList).map(obj => routeList[obj])
 
-    for (let index in routeList) { // Add chainName into the route
+    lengthRouteList = routeList.length
+    for (let index =0; index<lengthRouteList; index++) { // Add chainName into the route
+        if (routeList[index] === undefined) {
+            routeList.splice(index,1)     
+            commonPlatforms.splice(index,1)
+        }
+    }
+
+    console.log(`Final : routeList: ${routeList}\ncommonPlatforms:${commonPlatforms}`)
+    for(let index in routeList) {
         routeList[index]['chainName'] = commonPlatforms[index]
     }
+
     routeList = sortBigNumbers(routeList) // token amount is > 2^32, have to built own function to sort
     routeList.map(value => {
         value['fromTokenAmount'] = convertDecimalsToAmount(tokenA, value['fromTokenAmount'])

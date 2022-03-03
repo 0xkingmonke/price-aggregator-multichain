@@ -26,4 +26,7 @@ function sortBigNumbers(list) {
     console.log(list)
 }   
 
-sortBigNumbers(a)
+// sortBigNumbers(a)
+b = [0,1,'',3]
+c = b.splice(2,1)
+console.log(b,c)
