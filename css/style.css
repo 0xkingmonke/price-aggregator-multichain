@@ -51,6 +51,9 @@ nav {
 #main-body {
     display: flex;
 }
+body{
+    overflow-x:hidden;
+}
 
 #search-box {
     min-width: 576px;
@@ -116,11 +119,6 @@ nav {
     top: 50%;
 }
 
-#router {
-    display: flex;
-    justify-content: column;
-    overflow:hidden;
-}
 
 .mainSubRoute{
     flex:1;
@@ -166,6 +164,25 @@ nav {
     height: 90vh;
 }
 
+#bottom-section{
+    display:flex;
+    width: 198vw ;
+}
+
+
+
+#router {
+    display: flex;
+    flex:1;
+}
+
+#nft{
+    flex:1;
+    height: 100vh;
+    background-color: aqua;
+    transform: translateX(-100%);
+}
+
 #router-body {
     display: flex;
     flex-direction: column;
@@ -178,6 +195,8 @@ nav {
     transition: transform 0.4s ease-in-out;
     overflow: hidden;
 }
+
+
 
 #placeholder-body {
     display: flex;

@@ -16,7 +16,7 @@ document.querySelector('#buy-amount').addEventListener('input', (event) => { //U
 })
 document.querySelector('#buy-amount').readOnly = true;
 
-document.querySelector('#graph-button-id').addEventListener('click', () => {
+document.querySelector('#graph-button-id').addEventListener('click', () => { //Remember to uncomment
     leftBody = document.querySelector('#left-body')
     routerBody = document.querySelector('#router-body')
 
@@ -49,6 +49,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateEstimatePrice('Ethereum', '#estimate-buy-price')
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
-    clickGraph() // testing phase for routing
+    // clickGraph() // testing phase for routing
     checkQuotes('Magic Internet Money', 'USD Coin', '1000000')
 })
