@@ -1,32 +1,71 @@
-a = ['56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','341234123454123412341251234123412341234','62345123412341234123412341234','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','34123412344123412341251234123412341234','62345123412341234123412341234','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454','56234643575468745678567986578567865345634565623464357546874567856798657856786534563456','34123412344123412341251234123412341234','62345123412341234123412341234','562346435754687456785679865785678653456345656234643575468745678567986578567865345563456','56234643575468745678567986578567865345634565623464357546874567856798657856786534563454']
+const { default: axios } = require("axios");
+const fs = require('fs');
+const { get } = require("http");
 
-function firstSmallerThanSecond(a,b) {
-    if(a.length > b.length) return false
-    if(b.length > a.length) return true
-
-    for(let index in a) {
-        if (a.slice(index) > b.slice(index) ) return false
-        if (b.slice(index) > a.slice(index) ) return true
+contractAddress = '0x59468516a8259058baD1cA5F8f4BFF190d30E066'
+id = 1
+const options1 = { //opensea api, can use it for search engine
+    method: 'GET',
+    url: `https://api.opensea.io/api/v1/asset/${contractAddress}/${id}/listings?limit=20`,
+    headers: {
+        Accept: 'application/json',
+        'X-API-KEY': '01b3549192b24412a66ad25190e04bf2'
     }
+};
 
-    return true //Extremely unlikely that both trades at the same price
+const options2 = {
+    method: 'GET',
+    url: `https://api.opensea.io/api/v1/collections?offset=0&limit=300`,
+    headers: {
+        Accept: 'application/json',
+        'X-API-KEY': '01b3549192b24412a66ad25190e04bf2'
+    }
+};
 
+
+
+
+const main = async () => {
+    rawData = await axios(options2).then(res => res.data)
+    fs.writeFileSync('test1.json', JSON.stringify(rawData))
+    console.log(rawData)
 }
 
-function sortBigNumbers(list) {    
-    if (list.length <=1) return list
-    for(let index =0; index< list.length-1; index++)  {
-        for(let index2 =0; index2 < list.length-1; index2++)
-        if ( firstSmallerThanSecond(list[index2], list[index2+1]) ) {
-            let temp  = list[index2]
-            list[index2] = list[index2 +1]
-            list[index2+1] = temp
+
+const mainCo = async () => { // useful data, can use it to build database. NFTmarket global view
+    let rawData;
+    option = {
+        method: "GET",
+        url: "https://api.covalenthq.com/v1/1/nft_market/?key=ckey_7c27f45f0eba40a490ac5d4affc",
+        headers: {
+            Accept: 'application/json'
         }
     }
-    console.log(list)
-}   
 
-// sortBigNumbers(a)
-b = [0,1,'',3]
-c = b.splice(2,1)
-console.log(b,c)
+    do{  //backend queue is full and cannot accept request
+        rawData = await axios(option).then(res => res.data).catch(() => console.log('err'))
+    }
+    while (rawData == undefined) {
+        setInterval(()=>{}, 2000)
+        rawData = await axios(option).then(res => res.data).catch(() => console.log('err'))
+    }
+    return rawData
+}
+
+async function apiCall(url) {
+    option = {
+        method: "GET",
+        url,
+        headers: {
+            Accept: 'application/json'
+        }
+    }
+    result = await axios(option).then(res => res.data)
+    console.log(result)
+}
+
+// apiCall('https://api.covalenthq.com/v1/1/tokens/0xe4605d46fd0b3f8329d936a8b258d69276cba264/nft_transactions/123/?key=ckey_7c27f45f0eba40a490ac5d4affc')
+// main()
+(async () => {
+    console.log(await mainCo())
+})()

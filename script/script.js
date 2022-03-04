@@ -50,5 +50,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
     // clickGraph() // testing phase for routing
-    checkQuotes('Magic Internet Money', 'USD Coin', '1000000')
+    // Bug , cant swap 100 usdc for eth
 })
