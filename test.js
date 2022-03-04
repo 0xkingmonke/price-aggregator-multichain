@@ -32,21 +32,23 @@ const main = async () => {
 }
 
 
-const mainCo = async () => { // useful data, can use it to build database. NFTmarket global view
+
+
+async function callCovalentApi(url) { // useful data, can use it to build database. NFTmarket global view
     let rawData;
     option = {
         method: "GET",
-        url: "https://api.covalenthq.com/v1/1/nft_market/?key=ckey_7c27f45f0eba40a490ac5d4affc",
+        url,
         headers: {
             Accept: 'application/json'
         }
     }
 
-    do{  //backend queue is full and cannot accept request
+    do {  //backend queue is full and cannot accept request
         rawData = await axios(option).then(res => res.data).catch(() => console.log('err'))
     }
     while (rawData == undefined) {
-        setInterval(()=>{}, 2000)
+        setInterval(() => { }, 2000)
         rawData = await axios(option).then(res => res.data).catch(() => console.log('err'))
     }
     return rawData
@@ -64,8 +66,15 @@ async function apiCall(url) {
     console.log(result)
 }
 
-// apiCall('https://api.covalenthq.com/v1/1/tokens/0xe4605d46fd0b3f8329d936a8b258d69276cba264/nft_transactions/123/?key=ckey_7c27f45f0eba40a490ac5d4affc')
-// main()
-(async () => {
-    console.log(await mainCo())
-})()
+async function callTable() {
+    result = await callCovalentApi('https://api.covalenthq.com/v1/1/nft_market/?quote-currency=USD&format=JSON&page-number=&page-size=&key=ckey_7c27f45f0eba40a490ac5d4affc')
+    // result = result['data']['items']
+    fs.writeFileSync('globalView.json', JSON.stringify(result))
+}
+
+
+async function getNftTransaction() {
+    result = await callCovalentApi('https://api.covalenthq.com/v1/1/tokens/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/nft_transactions/5555/?quote-currency=USD&format=JSON&key=ckey_7c27f45f0eba40a490ac5d4affc')
+    fs.writeFileSync('nftTransactions.json', JSON.stringify(result))
+}
+callTable()
