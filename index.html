@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="swap-box-right">
-                            <input type="text" style="width:100%;height:100%; font-size:3em" id='sell-amount'>
+                            <input type="text" id='sell-amount'>
                             <!-- Input text -->
                         </div>
                     </div>
@@ -106,7 +106,8 @@
 
     <div>
         <div id="bottom-section">
-            <div id="router">
+
+            <div id="router"> <!-- Router-->
                 <div id="router-body">
                     <div id="router-content">
                         <div id="show-price" style="border:5px solid blue;width:100%">
@@ -118,9 +119,42 @@
                     </div>
                 </div>
                 <div id="placeholder-body"> </div>
-            </div>
+            </div> <!-- End of router-->
+
             <div id="nft">
 
+                <div id="nft-table"> <!-- NFT Table-->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Volume 24h</th>
+                              <th scope="col">Avg price 24h</th>
+                              <th scope="col">Transaction count <br>(all time)</th>
+                              <th scope="col">Unique wallet purchase<br>(all time)</th>
+                              <th scope="col"> Age</th>
+                            </tr>
+                          </thead>
+                          <tbody id="table-body">
+                            <tr>  
+                              <th scope="row">1</th>
+                              <td> <img src="https://cloudflare-ipfs.com/ipfs/QmdEN6d2T6Dgn9EPtf7bXd4qd7ZaNERPjsyBhL7WJnsp2b" style="height:4em"> Treeverse</td>
+                              <td>18329.918</td>
+                              <td>3665.9836</td>
+                              <td>14877</td>
+                              <td>5336</td>
+                              <td>500 Days</td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                    </table>
+                </div> <!-- end of NFT Table-->
+
+                <div id='nft-card'>
+                    
+                </div>
             </div>
         </div>
 

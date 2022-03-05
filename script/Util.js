@@ -1,4 +1,4 @@
- // tokenID, tokenList is curated from data.js
+// tokenID, tokenList is curated from data.js
 async function generateChart(ticker, numberOfDay, DivID) { //numberOfDay ={(1/7/14/30/90/180/365/max}
     ticker = tokenJson[ticker]['id']
     const chartData = async () => { // i.e. https://api.coingecko.com/api/v3/coins/bitcoin/ohlc?vs_currency=usd&days=1
@@ -13,7 +13,7 @@ async function generateChart(ticker, numberOfDay, DivID) { //numberOfDay ={(1/7/
                 data: data
             }],
             xaxis: {
-                type: 'datetime'
+                type: 'datetime',
             }
         }
         document.querySelector(DivID).innerHTML = ''
@@ -56,7 +56,7 @@ function updateBuyDropDown(targetValue) {
     parentElement = document.querySelector('#buy-dropdown')
     parentElement.innerHTML = ''
     for (let item of tokenList) {
-        if (targetValue.toUpperCase() != item.slice(0, targetValue.length).toUpperCase() ) {
+        if (targetValue.toUpperCase() != item.slice(0, targetValue.length).toUpperCase()) {
             continue
         }
         childElement = document.createElement('li')
@@ -84,4 +84,21 @@ function updateEstimateBuyValue(amount) {
 
 function clickGraph() {
     document.getElementById('graph-button-id').click()
+}
+
+function handleSellAmountError(string) {
+    dotCount = 0
+    for (let char of string) {
+        if (isNaN(Number(char))) {
+            if (dotCount == 0 && char == '.') {
+                ++dotCount
+                continue
+            }
+            document.querySelector('#sell-amount').style.backgroundColor = 'red'
+            document.querySelector('#sell-amount').style.color = 'white'
+            return true
+        }
+    }
+    document.querySelector('#sell-amount').style.backgroundColor = 'white'
+    document.querySelector('#sell-amount').style.color = 'black'
 }

@@ -22,11 +22,6 @@ specialTokenDecimal = {   //self-curated list of tokens with different decimal
 }
 
 function checkPlatforms(tokenA, tokenB) {
-    console.log(tokenJson['USD Coin'])
-    console.log(tokenA)
-    console.log(tokenJson[tokenA])
-    console.log(tokenB)
-    console.log(tokenJson[tokenB])
     commonPlatforms = []
     for (let itemA in tokenJson[tokenA]['platforms']) {
         for (let itemB in tokenJson[tokenB]['platforms']) {
@@ -34,28 +29,43 @@ function checkPlatforms(tokenA, tokenB) {
             if (itemA == itemB && chainID.hasOwnProperty(itemA)) commonPlatforms.push(itemA)
         }
     }
-    console.log(`common Platforms : ${commonPlatforms}`)
     return commonPlatforms
 }
 
-function convertAmountToDecimals(token, amount) {
+function convertAmountToDecimals(token, amount) { // Convert string to 2^32
+
+
+    decimalPlace = 0 // 50000.1444  0.1
+    amount += ''
+
+    if (amount.includes('.')) {
+        decimalPlace = amount.length - (amount.indexOf('.') + 1) // Since we are using index, nth position is index +1
+        amount = amount.replace('.', '')
+    }
 
     if (specialTokenDecimal.hasOwnProperty(token)) {
-        decimalString = '0'.repeat(specialTokenDecimal[token])
+        decimalString = '0'.repeat(specialTokenDecimal[token] - decimalPlace)
     } else {
-        decimalString = '0'.repeat(18)
+        decimalString = '0'.repeat(18 - decimalPlace)
     }
 
     amountInString = `${amount}${decimalString}`
+    while (amountInString.at(0) == '0') {
+        amountInString = amountInString.substring(1)
+    }
+
     return amountInString
 }
 
 function convertDecimalsToAmount(token, amount) {
-    amount = amount + ''
 
     if (specialTokenDecimal.hasOwnProperty(token)) {
         amountInString = `${amount.slice(0, amount.length - specialTokenDecimal[token])}.${amount.slice(amount.length - specialTokenDecimal[token],)}`
     } else {
+        if (amount.length < 18) {
+            amount = `${'0'.repeat(18 - amount.length)}${amount}`
+        }
+
         amountInString = `${amount.slice(0, amount.length - 18)}.${amount.slice(amount.length - 18,)}`
     }
     return amountInString
@@ -105,6 +115,8 @@ async function displayPrice(list) {
 }
 
 function drawSubRoutes(dataList, nameList, divID) {
+    let defaultHeight;
+    if (dataList.length <= 2) defaultHeight = '40%'
     var options = {
         series: [{
             data: dataList
@@ -124,9 +136,11 @@ function drawSubRoutes(dataList, nameList, divID) {
         },
         xaxis: {
             categories: nameList,
+        },
+        label: {
+            show: false
         }
     };
-    console.log(`#${divID}`)
     return new ApexCharts(document.querySelector(`#${divID}`), options)
 }
 
@@ -136,6 +150,7 @@ async function displayRoute(route) {  //#show-routes
     grandParentElement = document.querySelector('#show-routes')
     grandParentElement.innerHTML = ''
     eachRouteIndex = 0
+    mainRouteHeight = {}
     for (let mainSubRouteIndex in route['protocols']) {
         parentElement = document.createElement('div')
         parentElement.className = 'mainSubRoute'
@@ -143,15 +158,17 @@ async function displayRoute(route) {  //#show-routes
         parentElement.setAttribute("id", `mainSubRoute${mainSubRouteIndex}`)
         grandParentElement.appendChild(parentElement)
         parentElement.style.border = '5px solid yellow'
+        mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] = 1
 
-        dataList = []
-        nameList = []
 
         for (let subRoute of route['protocols'][mainSubRouteIndex]) { //Added list of routes that subroute took
+            dataList = []
+            nameList = []
             for (let eachRoute of subRoute) {
                 dataList.push(eachRoute['part'])
                 nameList.push(eachRoute['name'])
             }
+            mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] = mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] > nameList.length ? mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] : nameList.length
             kidElement = document.createElement('div')
             kidElement.className = 'eachRoute'
             kidElement.setAttribute("id", `eachRoute${eachRouteIndex}`)
@@ -161,7 +178,14 @@ async function displayRoute(route) {  //#show-routes
             graphList.push(drawRouteObject)
             eachRouteIndex++
         }
+
     }
+    for (let key in mainRouteHeight) {
+        document.querySelector(`#${key}`).style.flex = `${mainRouteHeight[key]}`
+    }
+    
+    console.log(mainRouteHeight)
+    
 
 
     for (let item of graphList) {
@@ -182,23 +206,23 @@ async function checkQuotes(tokenA, tokenB, amount) {
         addressTokenA = tokenJson[tokenA]['platforms'][chainName]
         addressTokenB = tokenJson[tokenB]['platforms'][chainName]
         amountInString = convertAmountToDecimals(tokenA, amount)
-        dataByChain = getDataByChain(chainAddress, addressTokenA, addressTokenB, amountInString).catch(()=> {return })
+        dataByChain = getDataByChain(chainAddress, addressTokenA, addressTokenB, amountInString).catch(() => { return })
         promiseList.push(dataByChain)
-    }   
+    }
 
     routeList = await Promise.all(promiseList).then(values => values)
     routeList = Object.keys(routeList).map(obj => routeList[obj])
 
     lengthRouteList = routeList.length
-    for (let index =0; index<lengthRouteList; index++) { // Add chainName into the route
+    for (let index = 0; index < lengthRouteList; index++) { // Add chainName into the route
         if (routeList[index] === undefined) {
-            routeList.splice(index,1)     
-            commonPlatforms.splice(index,1)
+            routeList.splice(index, 1)
+            commonPlatforms.splice(index, 1)
         }
     }
 
-    console.log(`Final : routeList: ${routeList}\ncommonPlatforms:${commonPlatforms}`)
-    for(let index in routeList) {
+    // console.log(`Final : routeList: ${routeList}\ncommonPlatforms:${commonPlatforms}`) @dev for troubleshooting
+    for (let index in routeList) {
         routeList[index]['chainName'] = commonPlatforms[index]
     }
 

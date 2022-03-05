@@ -8,6 +8,7 @@ document.querySelector('#sell-search').addEventListener('input', (event) => { //
 })
 
 document.querySelector('#sell-amount').addEventListener('input', (event) => { //Update estimate total value
+    handleSellAmountError(event.target.value)
     updateEstimateSellValue(event.target.value)
 })
 
@@ -33,7 +34,9 @@ document.querySelector('#graph-button-id').addEventListener('click', () => { //R
 
 document.querySelector('#quote-button').addEventListener('click', () => {
     amount = document.querySelector('#sell-amount').value
-    console.log(amount)
+    if (handleSellAmountError(amount)) {
+        console.log('AMEN')
+    }
     tokenA = document.querySelector('#dropdownMenuButton2').innerHTML
     tokenB = document.querySelector('#dropdownMenuButton1').innerHTML
     checkQuotes(tokenA,tokenB,amount)
@@ -49,6 +52,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateEstimatePrice('Ethereum', '#estimate-buy-price')
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
-    // clickGraph() // testing phase for routing
-    // Bug , cant swap 100 usdc for eth
+    clickGraph() // testing phase for routing
+    checkQuotes('USD Coin','Ethereum', 1143212413)
+    
 })
