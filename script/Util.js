@@ -103,3 +103,4 @@ function handleSellAmountError(string) {
     document.querySelector('#sell-amount').style.color = 'black'
 }
 
+document.querySelector('#af')

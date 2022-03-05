@@ -24,12 +24,12 @@ document.querySelector('#graph-button-id').addEventListener('click', () => { //R
 
     if (leftBody.style.transform == 'translateX(-100%)') {
         leftBody.style.transform = 'translateX(0%)'
-        routerBody.style.transform = 'translate(100%,-100%)'
+        routerBody.style.transform = 'translateX(0%)' //Important Remember to uncomment
         setTimeout(() => { document.querySelector('#router').style.overflow = 'hidden' }, 400)
     } else {
         document.querySelector('#router').style.overflow = 'visible'
         leftBody.style.transform = 'translateX(-100%)'
-        routerBody.style.transform = 'translate(0%,-100%)'
+        routerBody.style.transform = 'translateX(-100%)'
     }
 })
 

@@ -8,11 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/swapbox.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div style="display:flex">
+    <div style="display:flex" id="left-section">
         <!-- Navbar-->
         <nav id="navbar" class="container-fluid">
             <div id="nav-logo">Pachinko</div>
@@ -27,86 +29,89 @@
             </div>
         </nav>
     </div>
-    <div id="main-body">
-        <div id="left-body">
-            <div class=chart id="sell-chart">
-            </div>
-            <div class="chart" id="buy-chart">
-            </div>
-        </div>
-        <div id="right-body">
+    <div id="both-section">
 
-            <div id="search-box">
-                <!-- Sell menu -->
-                <div class="swap-box" style="background-color : yellow">
-                    <div class="swap-box-top">
-                        <div class="swap-box-left" id="estimate-sell-price">Price</div>
-                        <!-- Estimate price from coingecko api-->
-                        <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
+        <div id="left-section">
+            <div id="main-body">
+                <div id="left-body">
+                    <div class=chart id="sell-chart">
                     </div>
-                    <div class="swap-box-btm">
-                        <div class="swap-box-left">
-                            <!-- Drop down -->
-                            <div class="btn-group dropdown dropdown-sell">
+                    <div class="chart" id="buy-chart">
+                    </div>
+                </div>
+                <div id="right-body">
 
-                                <div class="btn btn-primary dropdown-toggle dropdown-sell" type=""
-                                    id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
-                                    style="height:100%" style="border:none;">USD Coin</div>
-                                <!-- Options -->
-                                <ul class="dropdown-menu dropdown-sell-menu">
-                                    <!-- Drop sell absolute-->
-                                    <li><input type="text" id="sell-search"></li>
-                                    <div id="sell-dropdown">
+                    <div id="search-box">
+                        <!-- Sell menu -->
+                        <div class="swap-box" style="background-color : yellow">
+                            <div class="swap-box-top">
+                                <div class="swap-box-left" id="estimate-sell-price">Price</div>
+                                <!-- Estimate price from coingecko api-->
+                                <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
+                            </div>
+                            <div class="swap-box-btm">
+                                <div class="swap-box-left">
+                                    <!-- Drop down -->
+                                    <div class="btn-group dropdown dropdown-sell">
+
+                                        <div class="btn btn-primary dropdown-toggle dropdown-sell" type=""
+                                            id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
+                                            style="height:100%" style="border:none;">USD Coin</div>
+                                        <!-- Options -->
+                                        <ul class="dropdown-menu dropdown-sell-menu">
+                                            <!-- Drop sell absolute-->
+                                            <li><input type="text" id="sell-search"></li>
+                                            <div id="sell-dropdown">
+                                            </div>
+                                        </ul>
                                     </div>
-                                </ul>
+                                </div>
+                                <div class="swap-box-right">
+                                    <input type="text" id='sell-amount'>
+                                    <!-- Input text -->
+                                </div>
                             </div>
                         </div>
-                        <div class="swap-box-right">
-                            <input type="text" id='sell-amount'>
-                            <!-- Input text -->
-                        </div>
-                    </div>
-                </div>
-                <!-- End of sell menu -->
+                        <!-- End of sell menu -->
 
-                <!-- Buy menu -->
-                <div class="swap-box" style="background-color : yellow">
-                    <div class="swap-box-top">
-                        <div class="swap-box-left" id="estimate-buy-price">Price</div>
-                        <!-- Estimate price from coingecko api-->
-                        <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
-                    </div>
-                    <div class="swap-box-btm">
-                        <div class="swap-box-left">
-                            <!-- Drop down -->
-                            <div class="btm-group dropdown">
-                                <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1"
-                                    data-bs-toggle="dropdown" style="height:100%" style="border:none;">Ethereum</div>
-                                <ul class="dropdown-menu">
-                                    <li><input type="text" id="buy-search"></li>
-                                    <div id="buy-dropdown">
+                        <!-- Buy menu -->
+                        <div class="swap-box" style="background-color : yellow">
+                            <div class="swap-box-top">
+                                <div class="swap-box-left" id="estimate-buy-price">Price</div>
+                                <!-- Estimate price from coingecko api-->
+                                <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
+                            </div>
+                            <div class="swap-box-btm">
+                                <div class="swap-box-left">
+                                    <!-- Drop down -->
+                                    <div class="btm-group dropdown">
+                                        <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" style="height:100%" style="border:none;">Ethereum
+                                        </div>
+                                        <ul class="dropdown-menu">
+                                            <li><input type="text" id="buy-search"></li>
+                                            <div id="buy-dropdown">
+                                            </div>
+                                        </ul>
                                     </div>
-                                </ul>
+                                </div>
+                                <div class="swap-box-right">
+                                    <input type="text" style="width:100%;height:100%;font-size:3em" id='buy-amount'>
+                                </div>
                             </div>
                         </div>
-                        <div class="swap-box-right">
-                            <input type="text" style="width:100%;height:100%;font-size:3em" id='buy-amount'>
+                        <!-- End of buy menu -->
+                        <div id="swap-button">
+                            <a class="btn btn-danger" id="graph-button-id">Graph</a>
+                            <a class="btn btn-primary" id="quote-button">Quote</a>
                         </div>
                     </div>
-                </div>
-                <!-- End of buy menu -->
-                <div id="swap-button">
-                    <a class="btn btn-danger" id="graph-button-id">Graph</a>
-                    <a class="btn btn-primary" id="quote-button">Quote</a>
+
                 </div>
             </div>
-
         </div>
-    </div>
 
-    <div>
-        <div id="bottom-section">
-
+        <div id="right-section">
             <div id="router"> <!-- Router-->
                 <div id="router-body">
                     <div id="router-content">
@@ -120,56 +125,13 @@
                 </div>
                 <div id="placeholder-body"> </div>
             </div> <!-- End of router-->
-
-            <div id="nft">
-
-                <div id="nft-table"> <!-- NFT Table-->
-
-
-                    <table class="table table-hover" style="position:relative">
-                        <thead id = 'table-header'>
-                            <tr >
-                              <th scope="col" >#</th>
-                              <th scope="col">Name
-                                  <input type="text" id="name-searchbar" class='ms-5' placeholder="Search by name">
-                              </th>
-                              <th scope="col">Transaction count <br>(all time)
-                                <a class='btn btn-primary' id="sort-transaction-desc"> D</a>
-                                <a class='btn btn-primary' id="sort-transaction-asc"> A</a>
-                            </th>
-                              <th scope="col">Unique wallet purchase<br>(all time)
-                                <a class='btn btn-primary' id="sort-unique-desc"> D</a>
-                                <a class='btn btn-primary' id="sort-unique-asc"> A</a>
-                            </th>
-                              <th scope="col"> Age
-                                <a class='btn btn-primary' id="sort-age-desc"> D</a>
-                                <a class='btn btn-primary' id="sort-age-asc"> A</a>
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody id="table-body">
-                            <tr>  
-                              <th scope="row">1</th>
-                              <td> <img src="https://cloudflare-ipfs.com/ipfs/QmdEN6d2T6Dgn9EPtf7bXd4qd7ZaNERPjsyBhL7WJnsp2b" style="height:4em"> Treeverse</td>
-                              <td>18329.918</td>
-                              <td>3665.9836</td>
-                              <td>14877</td>
-                              <td>5336</td>
-                              <td>500 Days</td>
-                            </tr>
-                            
-                          </tbody>
-                        </table>
-                    </table>
-                </div> <!-- end of NFT Table-->
-
-                <div id='nft-card'>
-                    
-                </div>
-            </div>
+        
         </div>
 
+        
+    
     </div>
+
 
 
 
@@ -182,7 +144,6 @@
     <script src="./script/data.js"></script>
     <script src="./script/Util.js"></script>
     <script src="./script/RoutingFunctions.js"></script>
-    <script src="./script/NftUtils.js"></script>
     <script src="./script/script.js"></script>
 </body>
 

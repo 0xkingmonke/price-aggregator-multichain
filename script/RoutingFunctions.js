@@ -114,16 +114,15 @@ async function displayPrice(list) {
     }
 }
 
-function drawSubRoutes(dataList, nameList, divID) {
+function drawSubRoutes(dataList, nameList, divID,height) {
     let defaultHeight;
-    if (dataList.length <= 2) defaultHeight = '40%'
     var options = {
         series: [{
             data: dataList
         }],
         chart: {
             type: 'bar',
-            height: '100%'
+            height
         },
         plotOptions: {
             bar: {
@@ -141,8 +140,11 @@ function drawSubRoutes(dataList, nameList, divID) {
             show: false
         }
     };
+
     return new ApexCharts(document.querySelector(`#${divID}`), options)
 }
+
+
 
 async function displayRoute(route) {  //#show-routes
 
@@ -159,7 +161,7 @@ async function displayRoute(route) {  //#show-routes
             })
         }
     }
-
+    
     for (let mainSubRouteIndex in route['protocols']) {
         parentElement = document.createElement('div')
         parentElement.className = 'mainSubRoute'
@@ -168,7 +170,7 @@ async function displayRoute(route) {  //#show-routes
         grandParentElement.appendChild(parentElement)
         parentElement.style.border = '5px solid yellow'
         mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] = 1
-        
+
 
         for (let subRoute of route['protocols'][mainSubRouteIndex]) { //Added list of routes that subroute took
             dataList = []
@@ -182,8 +184,9 @@ async function displayRoute(route) {  //#show-routes
             kidElement.className = 'eachRoute'
             kidElement.setAttribute("id", `eachRoute${eachRouteIndex}`)
             parentElement.appendChild(kidElement)
-
-            drawRouteObject = drawSubRoutes(dataList, nameList, `eachRoute${eachRouteIndex}`)
+            
+            drawRouteObject = route['protocols'].length <=2 ? drawSubRoutes(dataList, nameList, `eachRoute${eachRouteIndex}`, '40%') : drawSubRoutes(dataList, nameList, `eachRoute${eachRouteIndex}`, '100%')
+            console.log(drawRouteObject)
             graphList.push(drawRouteObject)
             eachRouteIndex++
         }
