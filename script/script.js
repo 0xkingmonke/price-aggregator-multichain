@@ -37,7 +37,7 @@ document.querySelector('#graph-button-id').addEventListener('click', () => { //R
 document.querySelector('#quote-button').addEventListener('click', () => {
     amount = document.querySelector('#sell-amount').value
     if (handleSellAmountError(amount)) {
-        console.log('AMEN')
+        console.log('error')
     }
     tokenA = document.querySelector('#dropdownMenuButton2').innerHTML
     tokenB = document.querySelector('#dropdownMenuButton1').innerHTML
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateEstimatePrice('Ethereum', '#estimate-buy-price')
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
-    clickGraph() // testing phase for routing
+    // clickGraph() // testing phase for routing
     checkQuotes('USD Coin','Ethereum', 100000)
     addSortEventListener()
 })
