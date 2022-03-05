@@ -151,6 +151,7 @@ async function displayRoute(route) {  //#show-routes
     grandParentElement.innerHTML = ''
     eachRouteIndex = 0
     mainRouteHeight = {}
+
     for( let subRoute of route['protocols']) {
         for(let eachRoute of subRoute) {
             eachRoute.sort( (x,y) => {

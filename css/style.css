@@ -52,7 +52,7 @@ nav {
     display: flex;
 }
 body{
-    overflow-x:hidden;
+    /* overflow-x:hidden; */
 }
 
 #search-box {
@@ -189,13 +189,21 @@ body{
     height: 100vh;
     background-color: lightsteelblue;
     transform: translateX(-100%);
+    margin-left:0px;
+    
+
 }
 
+
+
 #nft-table{
-    flex:4;
+    flex:3;
     width: 100%;
+    height:50%;
+    resize:both;
     background-color: lightcoral;
     overflow-y: auto;
+
 }
 #nft-card{
     flex:2;
@@ -233,18 +241,3 @@ body{
     } */
 }
 
-@media only screen and (max-width: 1000px) {
-    #navbar-mobile {
-        background-color: green;
-        transform: translateX(0%);
-        transition: transform 0.55s ease-in-out
-    }
-    nav {
-        transform: translateX(100%);
-        transition: transform 0.25s ease-in-out;
-    }
-    /* #left-body {
-        transform: translateX(0%);
-        transition: transform 0.25s ease-in-out;
-    } */
-}

@@ -17,6 +17,7 @@ document.querySelector('#buy-amount').addEventListener('input', (event) => { //U
 })
 document.querySelector('#buy-amount').readOnly = true;
 
+
 document.querySelector('#graph-button-id').addEventListener('click', () => { //Remember to uncomment
     leftBody = document.querySelector('#left-body')
     routerBody = document.querySelector('#router-body')
@@ -32,6 +33,7 @@ document.querySelector('#graph-button-id').addEventListener('click', () => { //R
     }
 })
 
+
 document.querySelector('#quote-button').addEventListener('click', () => {
     amount = document.querySelector('#sell-amount').value
     if (handleSellAmountError(amount)) {
@@ -43,6 +45,9 @@ document.querySelector('#quote-button').addEventListener('click', () => {
 
 })
 
+
+
+
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM content loaded : Success')
     await getLocalJsonData()
@@ -53,6 +58,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
     clickGraph() // testing phase for routing
-    checkQuotes('USD Coin','Ethereum', 1143212413)
-    
+    checkQuotes('USD Coin','Ethereum', 100000)
+    addSortEventListener()
 })
+

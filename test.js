@@ -13,5 +13,7 @@ a = [
 a = a.sort((x,y) => {
     return x['b'] - y['b']
 })
-
-console.log(a)
+let text = "Hello world!";
+b = 'bbb'
+let result = b.substring(0,text)
+console.log(result)

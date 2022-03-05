@@ -124,16 +124,27 @@
             <div id="nft">
 
                 <div id="nft-table"> <!-- NFT Table-->
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Volume 24h</th>
-                              <th scope="col">Avg price 24h</th>
-                              <th scope="col">Transaction count <br>(all time)</th>
-                              <th scope="col">Unique wallet purchase<br>(all time)</th>
-                              <th scope="col"> Age</th>
+
+
+                    <table class="table table-hover" style="position:relative">
+                        <thead id = 'table-header'>
+                            <tr >
+                              <th scope="col" >#</th>
+                              <th scope="col">Name
+                                  <input type="text" id="name-searchbar" class='ms-5' placeholder="Search by name">
+                              </th>
+                              <th scope="col">Transaction count <br>(all time)
+                                <a class='btn btn-primary' id="sort-transaction-desc"> D</a>
+                                <a class='btn btn-primary' id="sort-transaction-asc"> A</a>
+                            </th>
+                              <th scope="col">Unique wallet purchase<br>(all time)
+                                <a class='btn btn-primary' id="sort-unique-desc"> D</a>
+                                <a class='btn btn-primary' id="sort-unique-asc"> A</a>
+                            </th>
+                              <th scope="col"> Age
+                                <a class='btn btn-primary' id="sort-age-desc"> D</a>
+                                <a class='btn btn-primary' id="sort-age-asc"> A</a>
+                              </th>
                             </tr>
                           </thead>
                           <tbody id="table-body">
