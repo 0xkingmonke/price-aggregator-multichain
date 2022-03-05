@@ -35,8 +35,19 @@ async function getTable() {
     result = await callCovalentApi(`https://api.covalenthq.com/v1/1/nft_market/?key=${covalentApiKey}`)
     tableObject = result['data']['items']
     tableList = Object.keys(tableObject).map( x => tableObject[x] )
+    tableList
     return
 }
+
+// async function getImage(url) {
+//     var image = new Image()
+//     do{
+//         image.src = url
+//     }while (image.complete){
+//         return 
+//     }
+//     setInterval(()=>{}, 2000)
+// }
 
 async function drawTable(tableList) {
     parentElement = document.querySelector('#table-body')

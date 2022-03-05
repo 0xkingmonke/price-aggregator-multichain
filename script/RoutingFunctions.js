@@ -151,6 +151,14 @@ async function displayRoute(route) {  //#show-routes
     grandParentElement.innerHTML = ''
     eachRouteIndex = 0
     mainRouteHeight = {}
+    for( let subRoute of route['protocols']) {
+        for(let eachRoute of subRoute) {
+            eachRoute.sort( (x,y) => {
+                return  y['part'] - x['part']
+            })
+        }
+    }
+
     for (let mainSubRouteIndex in route['protocols']) {
         parentElement = document.createElement('div')
         parentElement.className = 'mainSubRoute'
@@ -159,7 +167,7 @@ async function displayRoute(route) {  //#show-routes
         grandParentElement.appendChild(parentElement)
         parentElement.style.border = '5px solid yellow'
         mainRouteHeight[`mainSubRoute${mainSubRouteIndex}`] = 1
-
+        
 
         for (let subRoute of route['protocols'][mainSubRouteIndex]) { //Added list of routes that subroute took
             dataList = []
@@ -182,10 +190,7 @@ async function displayRoute(route) {  //#show-routes
     }
     for (let key in mainRouteHeight) {
         document.querySelector(`#${key}`).style.flex = `${mainRouteHeight[key]}`
-    }
-    
-    console.log(mainRouteHeight)
-    
+    }  
 
 
     for (let item of graphList) {
