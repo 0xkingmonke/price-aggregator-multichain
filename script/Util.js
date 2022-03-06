@@ -103,4 +103,11 @@ function handleSellAmountError(string) {
     document.querySelector('#sell-amount').style.color = 'black'
 }
 
-document.querySelector('#af')
+function navbarInit() {
+    navbar = document.querySelector('.nav-link')
+    navbar.onmouseover = () => {
+        navbar.click()
+    }
+}
+
+navbarInit()

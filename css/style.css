@@ -3,14 +3,18 @@
 .chart {
     height: 100%;
     width: 100%;
-    border: 1px solid blue;
     margin-right: 10%;
     margin-left: auto;
 }
 
 
 body{
-    overflow-x:hidden;
+    /* overflow-x:hidden; */
+    background-color: #ffff00;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ff8000'/%3E%3Cstop offset='1' stop-color='%23ff8000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%2300ff19'/%3E%3Cstop offset='1' stop-color='%2300ff19' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239900ff'/%3E%3Cstop offset='1' stop-color='%239900ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ffff00'/%3E%3Cstop offset='1' stop-color='%23ffff00' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%230CF'/%3E%3Cstop offset='1' stop-color='%230CF' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    /* Credits to  https://www.svgbackgrounds.com/*/
 }
 
 /* Defining both section */
@@ -23,13 +27,11 @@ body{
 #left-section{
     display:flex;
     flex: 1;
-    border: 5px solid pink;
     
 }
 
 
 #right-section{
-    border:5px solid aqua;
     flex: 1;
     z-index: -1;
     transform: translateX(-40%);
@@ -62,7 +64,6 @@ body{
 
 #show-price {
     flex:1;
-    border:5px solid blue;
     width:100%;
 }
 
@@ -70,7 +71,6 @@ body{
     flex:4;
     display:flex;
     flex-direction: column;
-    border:10px solid blue;
     width:100%
 
 }
@@ -82,7 +82,6 @@ body{
 
 #left-body {
     flex: 3;
-    border: 10px solid green;
     background-color: gold;
     height: 90vh;
     display: flex;
@@ -93,8 +92,7 @@ body{
 
 #right-body {
     flex: 2;
-    border: 10px solid aqua;
-    background-color: purple;
+    background-color: white;
     height: 90vh;
     
 }
@@ -127,16 +125,41 @@ body{
 #placeholder-body {
     display: flex;
     flex: 2;
-    min-width: 576px;
+    min-width: px;
     resize: none;
-    background-color: green;
+    background-color: white;
     z-index: -1;
 }
 
-@media only screen and (max-width:1500px) {
+@media only screen and (max-width:576px) {
     /* #left-body {
-        transform: translateX(-100%);
-        transition: transform 0.25s ease-in-out;
+        display:none;
     } */
+    #logo{
+        display:none;
+    }
 }
 
+
+@media screen and (min-width: 0px) {
+
+    
+    
+}
+
+/* css rules for large phones from 576 to 768px (sm) */
+@media screen and (min-width: 576px) {
+    #search-box{
+        min-width: none;
+    }
+    /* css rules for large phones from 576 to 768px (sm) */
+}
+@media screen and (min-width: 768px) {
+    /* css rules for tablets from 768 to 992px (md) */
+}
+@media screen and (min-width: 992px) {
+    /* css rules for laptops from 992 to 1200px (lg) */
+}
+@media screen and (min-width: 1200px) {
+    /* css rules for large screens from 1200 onwards (xl) */
+}

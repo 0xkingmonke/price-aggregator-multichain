@@ -1,17 +1,15 @@
 #search-box {
-    min-width: 576px;
+    min-width: 540px;
     max-width: 80%;
     height: 80vh;
     margin: 0 auto;
     margin-top: 2em;
-    border: 5px solid blue;
-    background-color: white;
     border-radius: 3%;
     resize: none;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
+
 }
 
 
@@ -28,7 +26,6 @@
 .swap-box {
     display: flex;
     flex-direction: column;
-    border: 1px solid orange;
     background-color: gold;
     height: 20%;
 }
@@ -48,17 +45,66 @@
     width: 90%;
     height: 5em;
     margin: 0 auto;
-    border: 1px solid black;
     border-radius: 1em;
     display: flex;
 }
 
 .swap-box-left {
     flex: 1;
-    border: 1px solid green;
+
 }
 
 .swap-box-right {
     flex: 3;
-    border: 1px solid blue;
+
+}
+#mobile-show-route{
+    display:none;
+}
+@media screen and (min-width: 0px) and (max-width: 576px) {
+    body{
+        overflow:hidden ;
+    }
+    #search-box{
+        min-width: inherit;
+        margin:0 auto;
+        max-width:100%;
+    }
+    #both-section{
+        width:400vw;
+    }
+    #left-section {
+        flex:1;
+        transform:translateX(-50%)
+    }
+    #right-section {
+        flex:1;
+        display:hidden;
+    }
+    #left-body{
+        transform: translateX(0%);
+        flex:1
+    }
+    #right-body{
+        flex:1
+    }
+    #mobile-show-route{
+        display:block;
+        border: 1px solid black;
+        width: 80vw;
+        margin-left: auto;
+        margin-right:auto;
+        height:20vh;
+    }
+    #graph-button-id{
+        display:none;
+    }
+    #quote-button{
+        width:70%;
+    }
+    body {
+        overflow-y: hidden;
+        background-color: white;
+    }
+    /* css rules for large phones from 576 to 768px (sm) */
 }
