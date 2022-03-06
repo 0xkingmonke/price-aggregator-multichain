@@ -1,46 +1,3 @@
-
-nav {
-    background-color: lightblue;
-    border: black 1px solid;
-    height: 5em;
-    display: flex;
-    width: 0 auto;
-}
-
-#nav-logo {
-    flex: 1;
-    border: blue 2px solid;
-}
-
-#nav-function {
-    flex: 3;
-    border: green 2px solid;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-}
-
-#nav-right {
-    flex: 1;
-    display: flex;
-    align-items: flex-end;
-    border: purple 1px solid;
-}
-
-#nav-collapse {
-    display: none;
-}
-
-#navbar-mobile {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    transform: translateX(100%);
-    border: 2px solid orange;
-    height: 5em;
-    cursor: pointer;
-}
-
 #nft-table{
     width:50vw;
     min-width: 1200px;
@@ -52,37 +9,76 @@ nav {
 
 #card-container{
     width:80vw;
+    min-width: 1200px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .card-body{
+    display:flex;
     margin-top: 5em;
     margin-bottom: 1em;
     flex:1;
     height:60vh;
     border: 2px solid green;
+    overflow: hidden;
 }
 
 .card{
+    display: flex;
     border: 2px solid orange;
     height:100%;
-    width: 30vw;
+    min-width: 30vw;
     margin:auto;
 }
 
+/* Division of the card */
 .top-card{
-    flex:1;
+    display:flex;
+    height:10%;
     border: 1px solid blue;
+    flex-shrink: 0;
 }
 
 .middle-card{
-    flex:4;
-    border: 1px solid green;
+    height:40%;
+    display:flex;
+    flex-direction: row;
+    border: 10px solid green;
+    flex-shrink: 0;
 }
 
 .bottom-card{
-    flex:5;
+    height:50%;
     border: 1px solid gold;
+    flex-shrink: 0;
+}
+/*  */
+
+/* Top of the card */
+#card-title{
+    align-self: center;
+    margin-left: 0.5em;
+    font-size: 1.5em;
+}
+.card-search{
+    flex:1;
+    text-align: end;
+    align-self: center;
+    margin-right: 1em;
+    font-size: 1.5em;
+}
+
+/* Middle of the card */
+
+.cardPicture{
+    border: 1px solid black;
+    height:75%;
+    width:auto;
+    margin: auto;
+}
+.cardPicture > img {
+    height:100%;
+    margin: auto;
 }

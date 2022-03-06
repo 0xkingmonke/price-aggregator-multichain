@@ -1,9 +1,8 @@
 let covalentApiKey = 'ckey_7c27f45f0eba40a490ac5d4affc'
 let tableList;
 let useTableList;
-sortedStatus = {
-    'volume_quote_24h': 'asc'
-}
+let slug;
+
 
 async function callCovalentApi(url) { // useful data, can use it to build database. NFTmarket global view
     let rawData;
@@ -60,15 +59,46 @@ async function drawTable(tableList) {
     for (let item of tableList) {
         childElement = document.createElement('tr')
         parentElement.appendChild(childElement)
-        childElement.setAttribute('id',`${item['collection_address']}`)
+        childElement.setAttribute('id', `${item['collection_address']}`)
 
-        childElement.addEventListener('click', (event) => {
-            console.log(event.target.parentElement.id)
+        childElement.addEventListener('click', async (event) => { // Event listener to update search
+            document.querySelector('#card-title').innerHTML = `<img src="${item['first_nft_image']}" style="height:3em; border-radius:10px">  ${item['collection_name']}`
+            contractInfo = await axios(
+                {
+                    method: 'GET',
+                    url: `https://api.opensea.io/api/v1/asset_contract/${event.target.parentElement.id}`,
+                    headers: {
+                        'X-API-KEY': '01b3549192b24412a66ad25190e04bf2'
+                    }
+                }).then(res => res.data).catch(err => console.log(err))
+
+
+            document.querySelector('.cardPicture').innerHTML = `<img src= "${contractInfo['collection']['banner_image_url']}">`
+
+            slug = contractInfo['collection']['slug'] // Will be used for Opensea Api
+
+            collectionStats = await axios(
+                {
+                    method: 'GET',
+                    url: `https://api.opensea.io/api/v1/collection/${slug}/stats`,
+                    headers: {
+                        'X-API-KEY': '01b3549192b24412a66ad25190e04bf2',
+                        'Accept': 'application/json'
+                    }
+                }).then(res => res.data['stats'])
+
+            bottomCardElement = document.querySelector('#card-info')
+            bottomCardElement.contractAddress = item['collection_address']
+            for (let key in collectionStats ) {
+                bottomCardElement.innerHTML += `<p>${key} : ${collectionStats[key]}</p>`
+            }
+    
+            
         })
 
         childElement.innerHTML += ` 
         <th scope="row" >${tableList.indexOf(item) + 1}</th>
-        <td> <img src="${item['first_nft_image']}" style="height:4em"> ${item['collection_name']}</td>
+        <td> <img src="${item['first_nft_image']}" style="height:4em; border-radius:10px"> ${item['collection_name']}</td>
         <td>${item['transaction_count_alltime']}</td>
         <td>${item['unique_wallet_purchase_count_alltime']}</td>
         <td>${getAge(item['contract_deployment_at'])} days</td>`
@@ -83,9 +113,9 @@ async function initializeTable() {
 function filterByName(string) {
     useTableList = []
     string = string.toLowerCase()
-    for(let item of tableList) {
+    for (let item of tableList) {
         itemName = item['collection_name'].toLowerCase()
-        if (itemName.substring(0, string.length) === string ) useTableList.push(item)
+        if (itemName.substring(0, string.length) === string) useTableList.push(item)
     }
     useTableList = useTableList.sort()
     drawTable(useTableList)
@@ -93,52 +123,54 @@ function filterByName(string) {
 
 initializeTable()
 
-function addSortEventListener(){
+
+
+function addSortEventListener() {
     document.querySelector('#name-searchbar').addEventListener('input', (event) => {
         filterByName(event.target.value)
     })
-    document.querySelector('#sort-transaction-desc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+    document.querySelector('#sort-transaction-desc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             return y["transaction_count_alltime"] - x["transaction_count_alltime"]
         })
         drawTable(useTableList)
     })
-    
-    document.querySelector('#sort-transaction-asc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+
+    document.querySelector('#sort-transaction-asc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             return x["transaction_count_alltime"] - y["transaction_count_alltime"]
         })
         drawTable(useTableList)
     })
-    
-    document.querySelector('#sort-unique-desc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+
+    document.querySelector('#sort-unique-desc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             return y["unique_wallet_purchase_count_alltime"] - x["unique_wallet_purchase_count_alltime"]
         })
         drawTable(useTableList)
     })
-    
-    document.querySelector('#sort-unique-asc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+
+    document.querySelector('#sort-unique-asc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             return x["unique_wallet_purchase_count_alltime"] - y["unique_wallet_purchase_count_alltime"]
         })
         drawTable(useTableList)
     })
-    
-    document.querySelector('#sort-age-desc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+
+    document.querySelector('#sort-age-desc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             y = new Date(y["contract_deployment_at"])
             x = new Date(x["contract_deployment_at"])
             return y.getTime() - x.getTime()
         })
         drawTable(useTableList)
     })
-    
-    document.querySelector('#sort-age-asc').addEventListener('click', ()=> {
-        useTableList.sort( (x,y) => {
+
+    document.querySelector('#sort-age-asc').addEventListener('click', () => {
+        useTableList.sort((x, y) => {
             y = new Date(y["contract_deployment_at"])
             x = new Date(x["contract_deployment_at"])
-            return x.getTime() - y.getTime() 
+            return x.getTime() - y.getTime()
         })
         drawTable(useTableList)
     })
