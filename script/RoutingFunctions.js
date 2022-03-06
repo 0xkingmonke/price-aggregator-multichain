@@ -107,10 +107,11 @@ async function displayPrice(list) {
     parentElement.innerHTML = ''
     document.querySelector('#buy-amount').value = list[0]['toTokenAmount']
     updateEstimateBuyValue(list[0]['toTokenAmount'])
+    document.querySelector('#mobile-show-route').innerText = ''
     for (let route of list) {
         childElement = document.createElement('div')
-        childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}| Price:$${route['fromTokenAmount'] / route['toTokenAmount']}`
-        parentElement.appendChild(childElement)
+        childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}`
+        document.querySelector('#mobile-show-route').innerHTML += `<p>Output: ${route['toTokenAmount']} on ${route['chainName']}</p>`
     }
 }
 
@@ -122,7 +123,10 @@ function drawSubRoutes(dataList, nameList, divID,height) {
         }],
         chart: {
             type: 'bar',
-            height
+            height,
+            toolbar: {
+                show: false,
+            }
         },
         plotOptions: {
             bar: {

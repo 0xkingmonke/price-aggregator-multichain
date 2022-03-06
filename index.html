@@ -50,22 +50,16 @@
 
                     <div id="search-box">
                         <!-- Sell menu -->
-                        <div id="mobile-show-route">
-                                asdf
-                        </div>
+                        <div class="swap-box" >
 
-                        <div class="swap-box" style="background-color : yellow">
-                            <div class="swap-box-top">
-                                <div class="swap-box-left" id="estimate-sell-price">Price</div>
-                                <!-- Estimate price from coingecko api-->
-                                <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
-                            </div>
+
                             <div class="swap-box-btm">
-                                <div class="swap-box-left">
+
+                                <div class="swap-box-left" >
                                     <!-- Drop down -->
                                     <div class="btn-group dropdown dropdown-sell">
 
-                                        <div class="btn btn-primary dropdown-toggle dropdown-sell" type=""
+                                        <div class="dropdown-toggle dropdown-sell" type=""
                                             id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
                                             style="height:100%" style="border:none;">USD Coin</div>
                                         <!-- Options -->
@@ -75,29 +69,38 @@
                                             <div id="sell-dropdown">
                                             </div>
                                         </ul>
+                                        <!-- End of options -->
+
                                     </div>
                                 </div>
+
                                 <div class="swap-box-right">
-                                    <input type="text" id='sell-amount'>
+                                    <input type="text" id='sell-amount' class="input-amount">
                                     <!-- Input text -->
                                 </div>
-                            </div>
-                        </div>
-                        <!-- End of sell menu -->
 
-                        <!-- Buy menu -->
-                        <div class="swap-box" style="background-color : yellow">
-                            <div class="swap-box-top">
-                                <div class="swap-box-left" id="estimate-buy-price">Price</div>
-                                <!-- Estimate price from coingecko api-->
-                                <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
                             </div>
+                            <div class="swap-box-top">
+                                <div class="swap-box-left" id="estimate-sell-price">Price</div>
+                                <!-- Estimate price from coingecko api-->
+                                <div class="swap-box-right" id="estimate-sell-value">Estimate total value</div>
+                            </div>
+
+                        </div>
+
+                        <!-- End of sell menu -->
+                        <div style="height:5vh;margin-left:auto;margin-right:auto;margin-bottom:5%;">
+                            <a class=""> <img src="https://www.svgrepo.com/show/119597/up-and-down-arrows.svg" style='height:100%'></a>
+                        </div>
+                        <!-- Buy menu -->
+                        <div class="swap-box">
                             <div class="swap-box-btm">
-                                <div class="swap-box-left">
+                                <div class="swap-box-left" style="width:100%">
                                     <!-- Drop down -->
                                     <div class="btm-group dropdown">
-                                        <div class="btn btn-primary dropdown-toggle" type="" id="dropdownMenuButton1"
-                                            data-bs-toggle="dropdown" style="height:100%" style="border:none;">Ethereum</div>
+                                        <div class="dropdown-toggle" type="" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" style="height:50%; font-size: 1em;"
+                                            style="border:none;background-color: white;">Ethereum</div>
                                         <ul class="dropdown-menu">
                                             <li><input type="text" id="buy-search"></li>
                                             <div id="buy-dropdown">
@@ -106,14 +109,25 @@
                                     </div>
                                 </div>
                                 <div class="swap-box-right">
-                                    <input type="text" style="width:100%;height:100%;font-size:3em" id='buy-amount'>
+                                    <input type="text" id='buy-amount' class="input-amount">
                                 </div>
                             </div>
+
+                            <div class="swap-box-top">
+                                <div class="swap-box-left" id="estimate-buy-price">Price</div>
+                                <!-- Estimate price from coingecko api-->
+                                <div class="swap-box-right" id="estimate-buy-value">Estimated value</div>
+                            </div>
+
                         </div>
                         <!-- End of buy menu -->
                         <div id="swap-button">
                             <a class="btn btn-danger" id="graph-button-id">Graph</a>
                             <a class="btn btn-primary" id="quote-button">Quote</a>
+                            <a class="btn btn-primary" id="more-details">More details</a>
+                        </div>
+                        <div id="mobile-show-route">
+
                         </div>
                     </div>
 

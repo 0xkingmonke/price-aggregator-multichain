@@ -7,7 +7,10 @@ async function generateChart(ticker, numberOfDay, DivID) { //numberOfDay ={(1/7/
             chart: {
                 type: 'candlestick',
                 width: '80%',
-                height: '40%'
+                height: '40%',
+                        toolbar: {
+            show: false,
+        }
             },
             series: [{
                 data: data
@@ -40,7 +43,8 @@ function updateSellDropDown(targetValue) {
         childElement.innerHTML += `<a class="dropdown-item" >${item}</a>`
 
         childElement.addEventListener('click', (event) => { // Add event listener so change value
-            document.querySelector('#dropdownMenuButton2').innerHTML = item // Update the button value
+            console.log(tokenJson[item])
+            document.querySelector('#dropdownMenuButton2').innerHTML = `<img src="${tokenJson[item]['image']}">` // Update the button value
             updateEstimatePrice(item, '#estimate-sell-price')
             generateChart(item, 7, '#sell-chart')
         })
@@ -73,13 +77,13 @@ function updateBuyDropDown(targetValue) {
 function updateEstimateSellValue(amount) {
     estimatePrice = document.querySelector('#estimate-sell-price').innerHTML
     estimateValue = estimatePrice * amount
-    document.querySelector('#estimate-sell-value').innerHTML = estimateValue
+    document.querySelector('#estimate-sell-value').innerHTML = `~$${estimateValue}`
 }
 
 function updateEstimateBuyValue(amount) {
     estimatePrice = document.querySelector('#estimate-buy-price').innerHTML
     estimateValue = estimatePrice * amount
-    document.querySelector('#estimate-buy-value').innerHTML = estimateValue
+    document.querySelector('#estimate-buy-value').innerHTML = `~$${estimateValue}`
 }
 
 function clickGraph() {

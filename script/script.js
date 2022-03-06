@@ -45,7 +45,16 @@ document.querySelector('#quote-button').addEventListener('click', () => {
 
 })
 
-
+document.querySelector('#more-details').addEventListener('click', () => {
+    console.log(document.querySelector('#mobile-show-route').style.display =='block')
+    if( document.querySelector('#mobile-show-route').style.display == 'block' ) {
+        document.querySelector('#mobile-show-route').style.display = 'none'
+        document.querySelector('#more-details').innerText = 'More details'
+    } else {
+        document.querySelector('#mobile-show-route').style.display = 'block'
+        document.querySelector('#more-details').innerText = 'Hide details'
+    }
+})
 
 
 window.addEventListener('DOMContentLoaded', async (event) => {
@@ -59,6 +68,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateChart('Ethereum', 7, '#buy-chart')
     // clickGraph() // testing phase for routing
     checkQuotes('USD Coin','Ethereum', 100000)
-    addSortEventListener()
 })
 
