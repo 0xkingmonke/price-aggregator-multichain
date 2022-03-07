@@ -39,8 +39,9 @@ document.querySelector('#quote-button').addEventListener('click', () => {
     if (handleSellAmountError(amount)) {
         console.log('error')
     }
-    tokenA = document.querySelector('#dropdownMenuButton2').innerHTML
-    tokenB = document.querySelector('#dropdownMenuButton1').innerHTML
+    tokenA = document.querySelector('#dropdownMenuButton1').cryptoID
+    tokenB = document.querySelector('#dropdownMenuButton2').cryptoID
+    console.log(tokenA,tokenB)
     checkQuotes(tokenA,tokenB,amount)
 
 })
@@ -56,6 +57,8 @@ document.querySelector('#more-details').addEventListener('click', () => {
     }
 })
 
+document.querySelector('#reverse-order').addEventListener('click', reverseToken)
+
 
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM content loaded : Success')
@@ -66,7 +69,10 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     updateEstimatePrice('Ethereum', '#estimate-buy-price')
     generateChart('USD Coin', 7, '#sell-chart')
     generateChart('Ethereum', 7, '#buy-chart')
-    // clickGraph() // testing phase for routing
+    generateTwoSeriesChart('USD Coin','Ethereum', 7)
+    document.querySelector('#dropdownMenuButton1').cryptoID = 'USD Coin'
+    document.querySelector('#dropdownMenuButton2').cryptoID = 'Ethereum'
     checkQuotes('USD Coin','Ethereum', 100000)
+
 })
 

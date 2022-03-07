@@ -108,11 +108,18 @@ async function displayPrice(list) {
     document.querySelector('#buy-amount').value = list[0]['toTokenAmount']
     updateEstimateBuyValue(list[0]['toTokenAmount'])
     document.querySelector('#mobile-show-route').innerText = ''
+    index = 1
+    // childElement = document.createElement('div')
     for (let route of list) {
         childElement = document.createElement('div')
-        childElement.innerHTML = `Output: ${route['toTokenAmount']} on ${route['chainName']}`
-        document.querySelector('#mobile-show-route').innerHTML += `<p>Output: ${route['toTokenAmount']} on ${route['chainName']}</p>`
+        childElement.innerHTML += `<hr><p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
+
+        // For mobile friendly mode
+        document.querySelector('#mobile-show-route').innerHTML += `<hr><p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
+        index ++
     }
+    console.log(childElement)
+    parentElement.appendChild(childElement)
 }
 
 function drawSubRoutes(dataList, nameList, divID,height) {

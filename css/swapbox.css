@@ -14,6 +14,7 @@
 
 
 #swap-button{
+    margin-top:5em;
     display:flex;
     flex-direction:row;
     justify-content: space-around;
@@ -33,6 +34,9 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    color:#242423;
 }
 
 .swap-box-btm {
@@ -63,12 +67,28 @@
     width:100%;
     font-size:2em;
     border:none;
-    background-color: gray;
-    border-radius: 3%;
+    background-color: #d8eff2;
+    border-radius: 5%;
     margin-right: auto;
 }
 
+#dropdownMenuButton1 > img {
+    max-width: 50%;
+    width: 50%;
+    vertical-align:top;
+}
+#dropdownMenuButton2 > img {
+    max-width: 50%;
+    width: 50%;
+    vertical-align:top;
+}
 
+#reverse-order{
+    height:100%;
+    cursor:pointer;
+    border: 1px solid black;
+    border-radius: 100%;
+}
 #estimate-sell-value{
     text-align: end;
 }
@@ -83,9 +103,15 @@
 #more-details{
     display:none
 }
-@media screen and (min-width: 0px) and (max-width: 576px) {
+#quote-button > img {
+    max-width: 10em;
+    width: 20%;
+    vertical-align:top;
+    } 
+@media screen and (min-width: 0px) and (max-width: 767px) {
     body{
-        overflow:hidden;
+        overflow-x:hidden;
+        overflow-y: scroll;
     }
     #search-box{
         min-width: inherit;
@@ -121,17 +147,32 @@
         display:none;
     }
     #quote-button{
-        width:70%;
-        margin-bottom:0;
-        margin-bottom:20px;
+        width: 60vw;
+        vertical-align:top;
     }
     #more-details{
         display:block;
-        width:70%;
+        width:30vw;
+        margin:auto;
+        margin-top:20px;
     }
     body {
         overflow-y: hidden;
         background-color: white;
     }
+    #quote-button > img {
+        max-width: 5em;
+        width: 20%;
+        vertical-align:top;
+
+    
+    } /*Credits to https://thenounproject.com/eucalyp/ */
     /* css rules for large phones from 576 to 768px (sm) */
+
+    #mobile-show-route > p>img {
+        width: 3em;
+        border-radius: 5%;
+        vertical-align:top;
+
+    }
 }

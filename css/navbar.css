@@ -6,7 +6,7 @@ nav{
     font-size: 3em;
     color:black;
     font-family: 'Lato', sans-serif;
-    height:auto
+    height:auto;
 }
 
 li{
@@ -20,3 +20,4 @@ li{
     background-size: cover;
     width: 100vw;
 }
+

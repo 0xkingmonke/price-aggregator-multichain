@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;0,900;1,900&display=swap"
         rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;0,900;1,900&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/swapbox.css">
     <link rel="stylesheet" href="../../css/navbar.css">
@@ -24,13 +26,14 @@
     <!-- Navbar-->
     <div class="nav-item dropdown">
         <a class="nav-link" href="#" data-bs-toggle="dropdown" id='navbar'>
-            <img src="https://media.giphy.com/media/Rjz8xl9WlMgXC/giphy.gif" alt="" srcset="" id="logo">
             Pachinko
         </a>
+
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/">Pathfinder</a></li>
             <li><a class="dropdown-item" href="/nft_dashboard.html">NFT</a></li>
         </ul>
+
     </div>
     <!-- End of Navbar -->
     <div id="both-section">
@@ -44,24 +47,30 @@
                     </div>
                     <div class="chart" id="buy-chart">
                     </div>
+                    <div id="sync-chart">
+
+                    </div>
                 </div>
 
                 <div id="right-body">
 
                     <div id="search-box">
                         <!-- Sell menu -->
-                        <div class="swap-box" >
+                        <div class="swap-box">
 
 
                             <div class="swap-box-btm">
 
-                                <div class="swap-box-left" >
+                                <div class="swap-box-left">
                                     <!-- Drop down -->
                                     <div class="btn-group dropdown dropdown-sell">
 
-                                        <div class="dropdown-toggle dropdown-sell" type=""
-                                            id="dropdownMenuButton2" data-bs-display="static" data-bs-toggle="dropdown"
-                                            style="height:100%" style="border:none;">USD Coin</div>
+                                        <div class="dropdown-toggle dropdown-sell" type="" id="dropdownMenuButton2"
+                                            data-bs-display="static" data-bs-toggle="dropdown" style="height:100%"
+                                            style="border:none;">
+                                            <img src="https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389"
+                                                alt="" srcset="">
+                                        </div>
                                         <!-- Options -->
                                         <ul class="dropdown-menu dropdown-sell-menu">
                                             <!-- Drop sell absolute-->
@@ -90,8 +99,10 @@
 
                         <!-- End of sell menu -->
                         <div style="height:5vh;margin-left:auto;margin-right:auto;margin-bottom:5%;">
-                            <a class=""> <img src="https://www.svgrepo.com/show/119597/up-and-down-arrows.svg" style='height:100%'></a>
+                            <a class=""> <img src="https://www.svgrepo.com/show/119597/up-and-down-arrows.svg"
+                                    id="reverse-order"></a>
                         </div>
+
                         <!-- Buy menu -->
                         <div class="swap-box">
                             <div class="swap-box-btm">
@@ -100,7 +111,10 @@
                                     <div class="btm-group dropdown">
                                         <div class="dropdown-toggle" type="" id="dropdownMenuButton1"
                                             data-bs-toggle="dropdown" style="height:50%; font-size: 1em;"
-                                            style="border:none;background-color: white;">Ethereum</div>
+                                            style="border:none;background-color: white;">
+                                            <img src="https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
+                                                alt="" srcset="">
+                                        </div>
                                         <ul class="dropdown-menu">
                                             <li><input type="text" id="buy-search"></li>
                                             <div id="buy-dropdown">
@@ -122,9 +136,13 @@
                         </div>
                         <!-- End of buy menu -->
                         <div id="swap-button">
-                            <a class="btn btn-danger" id="graph-button-id">Graph</a>
-                            <a class="btn btn-primary" id="quote-button">Quote</a>
-                            <a class="btn btn-primary" id="more-details">More details</a>
+                            <div>
+                                <a class="btn btn-danger graph-desktop" id="graph-button-id">Graph</a>
+                                <a class="btn btn-danger graph-ipad" id="graph-button-id">Graph</a>
+                                <a class="btn btn-primary" id="quote-button"><img src="image/quote.svg" alt=""
+                                        srcset=""></a>
+                                <a class="btn btn-secondary" id="more-details">More details</a>
+                            </div>
                         </div>
                         <div id="mobile-show-route">
 

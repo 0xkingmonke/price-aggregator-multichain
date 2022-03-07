@@ -33,7 +33,13 @@
 /*  */
 
 
+#quote-button > img {
+    max-width: 20%;
+    width: 20%;
+    max-height: 100%;
+    vertical-align:top;
 
+} /*Credits to https://thenounproject.com/eucalyp/ */
 #graph-button {
     position: relative;
     top: 50%;
@@ -112,6 +118,12 @@
     overflow: hidden;
 }
 
+#show-price > div > p > img {
+    height: 3em;
+    width:3em;
+    border-radius: 5%;
+    vertical-align:top;
+}
 
 
 #placeholder-body {
@@ -122,36 +134,71 @@
     background-color: white;
     z-index: -1;
 }
+#sync-chart{
+    display:none
+}
 
-@media only screen and (max-width:576px) {
-    /* #left-body {
-        display:none;
-    } */
-    #logo{
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    #both-section{
+        display:flex;
+        flex-direction: row;
+        width: 300vw;
+    }
+    
+    #left-section{
+        display:flex;
+        flex: 2; 
+    }
+    
+    #right-section{
+        flex: 1;
+        z-index: -1;
+        transform: translateX(-40%);
+    }
+    #left-body {
+        flex: 1;
+    }
+    
+    #right-body {
+        flex: 1;
+        z-index: 10;
+        background-color: white;
+        height: 45vh;
+        transform: translateX(-100%)
+    }
+    .dropdown{
+        z-index: 2;
+    }
+    #sell-chart{
+        display: none;
+    }
+    #sync-chart{
+        display: block;
+        z-index: 1;
+        height:100%;
+        border: 1px solid black;
+    }
+
+    #swap-box-left{
+        z-index: 100;
+    }
+
+    #swap-button{
+        position:relative;
+        bottom:3.5em;
+        display:block;
+    }
+    .graph-desktop{
         display:none;
     }
-}
-
-
-@media screen and (min-width: 0px) {
-
-    
-    
-}
-
-/* css rules for large phones from 576 to 768px (sm) */
-@media screen and (min-width: 576px) {
-    #search-box{
-        min-width: none;
+    .graph-ipad{
+        font-size: 1em;
+        height:1m
     }
-    /* css rules for large phones from 576 to 768px (sm) */
-}
-@media screen and (min-width: 768px) {
-    /* css rules for tablets from 768 to 992px (md) */
-}
-@media screen and (min-width: 992px) {
-    /* css rules for laptops from 992 to 1200px (lg) */
 }
 @media screen and (min-width: 1200px) {
-    /* css rules for large screens from 1200 onwards (xl) */
+    .graph-ipad{
+        display:none;
+    }
 }

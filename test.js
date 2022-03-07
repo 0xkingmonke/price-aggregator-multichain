@@ -16,4 +16,8 @@ a = a.sort((x,y) => {
 let text = "Hello world!";
 b = 'bbb'
 let result = b.substring(0,text)
-console.log(result)
+
+
+eee = [4,132,4123,41,23,143,1]
+console.log(Math.max.apply(Math,eee))
+console.log(Math.min.apply(Math,eee))
