@@ -36,19 +36,29 @@ The following choices of font were made.
 
 Font family: `'Roboto', sans-serif;`
 
+
+# Website is live at https://cranky-hermann-6c6365.netlify.app/
+
+
 # TESTING
 
-1 | 2 | 
---- | --- | 
-1 | 2 | 
---- | --- | 
-![alt text](http://url/to/img.png)
+<img src="./readme.image/Routing.PNG" style="width:100%">
 
+## Testcases for routing
+
+# 1 | #2 | #3  | #4 
+---| --- | --| --|
+Select a token from the list| Enter any amount inside| Enter token that do not share a common platform. i.e. BNB and Ethereum | Click on the middle button that has both up arrow and bottom arrow
+|
+Chart should change immediately| Click on Graph / Route button (Red button) and it will display the route it take. You can verify this on https://app.1inch.io/#/1/classic/swap/ETH/DAI. Top right hand corner allows user to change the chain. It will display the route it takes | Nothing will display because there is no route | It will reverse the tokens 
 # API
 Coingecko : https://api.coingecko.com/api/v3/ 
 1inch API : https://api.1inch.io/v4.0/
 Covalent API : https://api.covalenthq.com/v1/ 
 Opensea API : https://api.opensea.io/api/v1/ 
+
+
+## Testcases for NFT dashboard
 
 # CREDITS AND ACKNOWLEDGMENT
 - Visual Studio Code
