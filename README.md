@@ -61,6 +61,7 @@ Chart should change immediately| Click on Graph / Route button (Red button) and 
 Hover along the yellow zone of the NFT | After selecting the collection, perform a look up (Some collection do not have tokenID) Sellect BoredApeYatchClub for testing| --| --| 
 It will automatically select the Collection and update the card | It will perform a look up with token ID.https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/%3CtokenID%3E | 
 
+
 # API
 Coingecko : https://api.coingecko.com/api/v3/ 
 1inch API : https://api.1inch.io/v4.0/
