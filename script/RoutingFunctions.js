@@ -18,7 +18,7 @@ specialTokenDecimal = {   //self-curated list of tokens with different decimal
     "Wrapped Bitcoin": 8,
     "cETH": 8,
     "cDAI": 8,
-    "KuCoin Token": 6
+    "KuCoin Token": 6,
 }
 
 function checkPlatforms(tokenA, tokenB) {

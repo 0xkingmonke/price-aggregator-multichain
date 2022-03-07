@@ -42,26 +42,19 @@ async function getTable() {
     return
 }
 
-// async function getImage(url) {
-//     var image = new Image()
-//     do{
-//         image.src = url
-//     }while (image.complete){
-//         return 
-//     }
-//     setInterval(()=>{}, 2000)
-// }
+
 
 async function drawTable(tableList) {
     parentElement = document.querySelector('#table-body')
     parentElement.innerHTML = ''
 
     for (let item of tableList) {
-        childElement = document.createElement('tr')
+        childElement = document.createElement('tr') // Creates row
         parentElement.appendChild(childElement)
-        childElement.setAttribute('id', `${item['collection_address']}`)
+        childElement.setAttribute('id', `${item['collection_address']}`) // childElementId = collection address
 
-        childElement.addEventListener('click', async (event) => { // Event listener to update search
+
+        async function updateCard(event) { // Event listener to update search
             document.querySelector('#card-title').innerHTML = `<img src="${item['first_nft_image']}" style="height:3em; border-radius:10px">  ${item['collection_name']}`
             contractInfo = await axios(
                 {
@@ -87,22 +80,53 @@ async function drawTable(tableList) {
                     }
                 }).then(res => res.data['stats'])
 
+            console.log(collectionStats)
+
+            numberOfDays = ['one','seven','thirty']
+            function precise(number) {
+                return number.toPrecision(4)
+            }
+            parentElement = document.querySelector('#card-info')
+            parentElement.innerText = ''
+            for(let day of numberOfDays) {
+                childElement = document.createElement('div')
+                childElement.innerHTML = `<h3>${day} day</h3>`
+                key1 = `${day}_day_average_price`
+                console.log(`key1 ${key1} == one_day_average_price`)
+                console.log(key1== 'one_day_average_price')
+                childElement.innerHTML += `<p>Average price: ${precise(collectionStats[key1])}</p>`
+                key2 = `${day}_day_change`
+                childElement.innerHTML += `<p>Change: ${precise(collectionStats[key2])}</p>`
+                key3 = `${day}_day_sales`
+                childElement.innerHTML += `<p>Sales: ${precise(collectionStats[key3])}</p>`
+                key4 = `${day}_day_volume`
+                childElement.innerHTML += `<p>Volume: ${precise(collectionStats[key4])}</p>`
+                parentElement.appendChild(childElement)
+            }
+            childElement = document.createElement('div')
+            childElement.innerHTML += `<h3>Real-time</h3>`
+            childElement.innerHTML += `<p>Average price: ${precise(collectionStats['average_price'])}</p>`
+            childElement.innerHTML += `<p>Total supply: ${precise(collectionStats['count'])}</p>`
+            childElement.innerHTML += `<p>Floor price : ${precise(collectionStats['floor_price'])}</p>`
+            childElement.innerHTML += `<p>Number of owners : ${precise(collectionStats['num_owners'])}</p>`
+            parentElement.appendChild(childElement)
+
             bottomCardElement = document.querySelector('#card-info')
             bottomCardElement.contractAddress = item['collection_address']
-            for (let key in collectionStats ) {
-                bottomCardElement.innerHTML += `<p>${key} : ${collectionStats[key]}</p>`
-            }
-    
             
-        })
+        }
+
+ 
+        childElement.addEventListener('click', updateCard)
 
         childElement.innerHTML += ` 
         <th scope="row" >${tableList.indexOf(item) + 1}</th>
-        <td> <img src="${item['first_nft_image']}" style="height:4em; border-radius:10px"><br> ${item['collection_name']}</td>
-        <td>${item['transaction_count_alltime']}</td>
-        <td>${item['unique_wallet_purchase_count_alltime']}</td>
-        <td>${getAge(item['contract_deployment_at'])} days</td>`
+        <td> <img src="${item['first_nft_image']}" style="height:4em; border-radius:10px"><br> ${item['collection_name']}</td>`
 
+        childElement.innerHTML+= `<td>${item['transaction_count_alltime']}</td>
+        <td>${item['unique_wallet_purchase_count_alltime']}</td>
+        <td>${getAge(item['contract_deployment_at'])} days</td>
+        <td></td>`
     }
 }
 async function initializeTable() {

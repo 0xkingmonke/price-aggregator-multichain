@@ -50,7 +50,7 @@
 
                 <div class="card">
                     <div class="top-card">
-                        <input type="text" id='card-title' size="15" readonly>
+                        <div id='card-title'> </div>
 
                         <div class='card-search'>
                             <input type="text" placeholder="token ID" size="7"name="cardSearch"id="card-search-bar" >
@@ -66,7 +66,9 @@
                         </div>
                     </div>
                     <div class="bottom-card">
-                        <div id="card-info"></div>
+                        <div id="card-info">
+
+                        </div>
                     </div>
                 </div>
 
@@ -101,6 +103,7 @@
                     <th scope="col">Name<br>
                         <input type="text" id="name-searchbar" class='' placeholder="Search by name">
                     </th>
+
                     <th scope="col">Transaction count <br>
                         <button class=' btn-table' id="sort-transaction-desc"> <svg class="lnr lnr-chevron-up"><use xlink:href="#lnr-chevron-up"></use></svg></button>
                         <button class=' btn-table' id="sort-transaction-asc"> <svg class="lnr lnr-chevron-down"><use xlink:href="#lnr-chevron-down"></use></svg></button>
@@ -115,6 +118,7 @@
                         <button class=' btn-table' id="sort-age-asc"> <svg class="lnr lnr-chevron-down"><use xlink:href="#lnr-chevron-up"></use></svg></button>
                         <button class=' btn-table' id="sort-age-desc"> <svg class="lnr lnr-chevron-up"><use xlink:href="#lnr-chevron-down"></use></svg></button>
                     </th>
+
                 </tr>
             </thead>
 

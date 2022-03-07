@@ -85,6 +85,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     generateTwoSeriesChart('USD Coin','Ethereum', 7)
     document.querySelector('#dropdownMenuButton1').cryptoID = 'USD Coin'
     document.querySelector('#dropdownMenuButton2').cryptoID = 'Ethereum'
+    document.querySelector('#sell-amount').value = 100000
     checkQuotes('USD Coin','Ethereum', 100000)
 
 })

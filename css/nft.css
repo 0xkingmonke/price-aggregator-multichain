@@ -7,8 +7,9 @@
 #nft-table{
     width:50vw;
     min-width: 1200px;
-    height:60vh;
+    height:50vh;
     margin:auto;
+    overflow-x: hidden;
     overflow-y: auto;
     
 }
@@ -27,23 +28,26 @@
     margin-bottom: 1em;
     flex:1;
     height:60vh;
-    border: 2px solid green;
     overflow: hidden;
 }
 
 .card{
     display: flex;
-    border: 2px solid orange;
     height:100%;
     min-width: 30vw;
     margin:auto;
+    background-color: #fff7ed;
 }
-
+.table{
+    display:block;
+    width: 50%;
+    overflow: hidden;
+}
 /* Division of the card */
 .top-card{
     display:flex;
     height:10%;
-    border: 1px solid blue;
+
     flex-shrink: 0;
 }
 
@@ -51,13 +55,11 @@
     height:40%;
     display:flex;
     flex-direction: row;
-    border: 10px solid green;
     flex-shrink: 0;
 }
 
 .bottom-card{
     height:50%;
-    border: 1px solid gold;
     flex-shrink: 0;
 }
 /*  */
@@ -66,7 +68,8 @@
 #card-title{
     align-self: center;
     margin-left: 0.5em;
-    font-size: 1.5em;
+    font-size: 10em;
+    width: 50%;
 }
 .card-search{
     flex:1;
@@ -74,8 +77,11 @@
     align-self: center;
     margin-right: 1em;
     font-size: 0.8em;
+    background-color: #fff7ed;
 }
-
+.card-search > img {
+    height:0.5em;
+}
 /* Middle of the card */
 
 .cardPicture{
@@ -94,7 +100,24 @@ svg{
     height: 1em;
     width:1em;
 }
-@media screen and (min-width: 0px) and (max-width: 767px) {
+
+#card-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#card-info > div > p {
+    font-size: 0.65em;
+}
+
+tr{
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 0px) and (max-width: 1200px) {
     body{
         overflow: auto;
     }
@@ -114,14 +137,18 @@ svg{
         display: flex;
         min-width: 30vw;
         width:90vw;
+        margin-top:1em;
     }
-
 
     /* Top of card */
     #card-title{
+        position: relative;
+        width: 60%;
         font-size: 1em;
-        top:2px;
-        background-color: #d8def5;
+        bottom: 1em;
+        right:1em;
+        background-color: #fff7ed;
+        border: 1px solid black;
         border-radius: 5%;
         border: none;
     }
@@ -155,24 +182,122 @@ svg{
     /* End of bottom of the card */
 
     /* Table */
-    .table{
-        display:block;
+
+    #nft-table{
+        width:80%;
+        height:60vh;
+        overflow-y: auto;
+        background-color: #fff7ed;
+        margin-top: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 0px;
     }
+    th{
+        font-size: 10px;
+        cursor:default;
+    }
+    td{
+        font-size: 1em;
+    }
+
+    .btn-table{
+        font-size: 0.7em;
+        width: auto;
+        background-color: white;
+        border: none;
+    }
+    table{
+        display: block;
+        width:80%;
+    }
+    /* End of Table */
+}
+
+@media screen and (min-width: 1200px) {
+    body{
+        overflow: auto;
+        height:130vh;
+    }
+
+    #card-container{
+        width:180vw;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .card-body{
+        margin-top: auto;
+        margin-bottom: 1em;
+    }
+
+    .card{
+        display: flex;
+        min-width: 30vw;
+        width:90vw;
+        margin-top:1em;
+    }
+
+    /* Top of card */
+    #card-title{
+        position: relative;
+        width: 60%;
+        font-size: 1em;
+        bottom: 1em;
+        right:1em;
+        background-color: #fff7ed;
+        border: 1px solid black;
+        border-radius: 5%;
+        border: none;
+    }
+    #card-search-bar{
+        position:relative;
+        left: 22px;
+        top:2px;
+    }
+    #card-search-bar-btn{
+        margin-left: auto;
+        font-size: auto;
+        position:relative;
+        bottom: 2px;
+        left:10px;
+    }
+    /* End of top of card */
+    /* Middle of the card */
+    .cardPicture{
+        border: 1px solid black;
+        height:100%;
+        margin: auto;
+    }
+    .cardPicture > img {
+        width: 100%;
+        margin: auto;
+    }
+    /* End of Middle of the card */
+
+    /* Bottom of the card */
+
+    /* End of bottom of the card */
+
+    /* Table */
+
     #nft-table{
         min-width: auto;
         width:100%;
         height:60vh;
         overflow-y: auto;
-        border: 5px solid pink;
+        background-color: #fff7ed;
         margin-top: auto;
         padding-top: 0px;
     }
     th{
         font-size: 10px;
+        cursor:default;
     }
     td{
         font-size: 1em;
     }
+
     .btn-table{
         font-size: 0.7em;
         width: auto;
@@ -181,3 +306,4 @@ svg{
     }
     /* End of Table */
 }
+
