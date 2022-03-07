@@ -59,6 +59,19 @@ document.querySelector('#more-details').addEventListener('click', () => {
 
 document.querySelector('#reverse-order').addEventListener('click', reverseToken)
 
+document.querySelector('.graph-ipad').addEventListener('click',() => {
+    console.log('clicking')
+    document.querySelector('#ipad-show-route').style.transform = 'translateY(0%)'
+    setTimeout(() => {
+        document.querySelector('#sync-chart').style.zIndex = 1
+    }, 4500)
+})
+
+document.querySelector('#ipad-more-details').addEventListener('click',() => {
+    console.log('clicking')
+    document.querySelector('#ipad-show-route').style.transform = 'translateY(-100%)'
+    document.querySelector('#sync-chart').style.zIndex = 0
+})
 
 window.addEventListener('DOMContentLoaded', async (event) => {
     console.log('DOM content loaded : Success')

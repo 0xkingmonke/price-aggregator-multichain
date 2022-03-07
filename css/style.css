@@ -112,18 +112,14 @@
     flex-wrap:wrap;
     flex: 3;
     background-color: lightgray;
-    height: 90.5vh;
+    min-height: 90.5vh;
     z-index: -1;
     transition: transform 0.4s ease-in-out;
-    overflow: hidden;
+    height:auto;
+    /* overflow: hidden; */
 }
 
-#show-price > div > p > img {
-    height: 3em;
-    width:3em;
-    border-radius: 5%;
-    vertical-align:top;
-}
+
 
 
 #placeholder-body {
@@ -138,8 +134,28 @@
     display:none
 }
 
+#ipad-more-details{
+    display: none;       
+}
+#ipad-show-route{
+    display: none;
+}
+
+#show-price > tr >td  > img {
+    max-width: 4vh;
+    border-radius: 20%;
+    margin-top: 1em;
+    vertical-align:top;
+}
+
+.table{
+    display:none
+}
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
+    body{
+        overflow-y: auto;
+    }
     #both-section{
         display:flex;
         flex-direction: row;
@@ -196,9 +212,50 @@
         font-size: 1em;
         height:1m
     }
+    body{
+        overflow: auto;
+    }
+    #ipad-show-route{
+        display: block;
+        height:50vh;
+        padding-top:3em;
+        transition: 0.4s ease-in-out;
+        background-color: aqua;
+    }
+    #ipad-show-route > p > img {
+        max-height: 5vh;
+        vertical-align:top;
+    }
+    #ipad-more-details{
+        display: inline-block;
+    }
+    body{
+        overflow: hidden;
+    }
 }
 @media screen and (min-width: 1200px) {
     .graph-ipad{
         display:none;
+    } 
+    body{
+        overflow: scroll;
+    }
+    .display-price-routes{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+    }
+    .table{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #table-container{
+        margin-left:auto; 
+        margin-right:auto;
+        margin-top: 2em;
     }
 }
+

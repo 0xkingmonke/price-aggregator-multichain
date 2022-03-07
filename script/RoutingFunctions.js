@@ -108,17 +108,24 @@ async function displayPrice(list) {
     document.querySelector('#buy-amount').value = list[0]['toTokenAmount']
     updateEstimateBuyValue(list[0]['toTokenAmount'])
     document.querySelector('#mobile-show-route').innerText = ''
+    document.querySelector('#ipad-show-route').innerText = ''
     index = 1
-    // childElement = document.createElement('div')
+    childElement = document.createElement('div')
+    childElement.className += ''
     for (let route of list) {
-        childElement = document.createElement('div')
-        childElement.innerHTML += `<hr><p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
+        document.querySelector('#show-price').innerHTML += ` 
+        <th scope="row" >#${index}</th>
+        <td> <img src="./image/${route['chainName']}.png"></td>
+        <td>${route['toTokenAmount']}</td>`
 
         // For mobile friendly mode
-        document.querySelector('#mobile-show-route').innerHTML += `<hr><p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
+        document.querySelector('#mobile-show-route').innerHTML += `<hr> <p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
+
+        // For ipad friendly mode
+        document.querySelector('#ipad-show-route').innerHTML += `<hr> <p> #${index} <img src="./image/${route['chainName']}.png">${route['toTokenAmount']} </p>`
         index ++
     }
-    console.log(childElement)
+    console.log(document.querySelector('#ipad-show-route').innerHTML)
     parentElement.appendChild(childElement)
 }
 

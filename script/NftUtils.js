@@ -98,7 +98,7 @@ async function drawTable(tableList) {
 
         childElement.innerHTML += ` 
         <th scope="row" >${tableList.indexOf(item) + 1}</th>
-        <td> <img src="${item['first_nft_image']}" style="height:4em; border-radius:10px"> ${item['collection_name']}</td>
+        <td> <img src="${item['first_nft_image']}" style="height:4em; border-radius:10px"><br> ${item['collection_name']}</td>
         <td>${item['transaction_count_alltime']}</td>
         <td>${item['unique_wallet_purchase_count_alltime']}</td>
         <td>${getAge(item['contract_deployment_at'])} days</td>`

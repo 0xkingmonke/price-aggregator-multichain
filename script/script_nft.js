@@ -16,3 +16,5 @@ document.querySelector('#card-search-bar-btn').addEventListener('click', async()
     document.querySelector('.cardPicture').innerHTML = `<img src= "${assetData['image_thumbnail_url']}" alt="Not available"">`
 
 })
+
+addSortEventListener()

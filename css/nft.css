@@ -1,10 +1,16 @@
+#top-section{
+    display:flex; 
+    justify-content:center;
+}
+
+
 #nft-table{
     width:50vw;
     min-width: 1200px;
     height:60vh;
     margin:auto;
     overflow-y: auto;
-    border: 10px solid gold;
+    
 }
 
 #card-container{
@@ -67,7 +73,7 @@
     text-align: end;
     align-self: center;
     margin-right: 1em;
-    font-size: 1.5em;
+    font-size: 0.8em;
 }
 
 /* Middle of the card */
@@ -81,4 +87,97 @@
 .cardPicture > img {
     height:100%;
     margin: auto;
+}
+
+svg{
+    font-size: 1em;
+    height: 1em;
+    width:1em;
+}
+@media screen and (min-width: 0px) and (max-width: 767px) {
+    body{
+        overflow: auto;
+    }
+
+    #card-container{
+        width:180vw;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .card-body{
+        margin-top: auto;
+        margin-bottom: 1em;
+    }
+
+    .card{
+        display: flex;
+        min-width: 30vw;
+        width:90vw;
+    }
+
+
+    /* Top of card */
+    #card-title{
+        font-size: 1em;
+        top:2px;
+        background-color: #d8def5;
+        border-radius: 5%;
+        border: none;
+    }
+    #card-search-bar{
+        position:relative;
+        left: 22px;
+        top:2px;
+    }
+    #card-search-bar-btn{
+        margin-left: auto;
+        font-size: auto;
+        position:relative;
+        bottom: 2px;
+        left:10px;
+    }
+    /* End of top of card */
+    /* Middle of the card */
+    .cardPicture{
+        border: 1px solid black;
+        height:100%;
+        margin: auto;
+    }
+    .cardPicture > img {
+        width: 100%;
+        margin: auto;
+    }
+    /* End of Middle of the card */
+
+    /* Bottom of the card */
+
+    /* End of bottom of the card */
+
+    /* Table */
+    .table{
+        display:block;
+    }
+    #nft-table{
+        min-width: auto;
+        width:100%;
+        height:60vh;
+        overflow-y: auto;
+        border: 5px solid pink;
+        margin-top: auto;
+        padding-top: 0px;
+    }
+    th{
+        font-size: 10px;
+    }
+    td{
+        font-size: 1em;
+    }
+    .btn-table{
+        font-size: 0.7em;
+        width: auto;
+        background-color: white;
+        border: none;
+    }
+    /* End of Table */
 }
