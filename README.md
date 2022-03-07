@@ -46,20 +46,30 @@ Font family: `'Roboto', sans-serif;`
 
 ## Testcases for routing
 
-# 1 | #2 | #3  | #4 
----| --- | ---| ---|
-Select a token from the list| Enter any amount inside| Enter token that do not share a common platform. i.e. BNB and Ethereum | Click on the middle button that has both up arrow and bottom arrow
-|
-Chart should change immediately| Click on Graph / Route button (Red button) and it will display the route it take. You can verify this on https://app.1inch.io/#/1/classic/swap/ETH/DAI. Top right hand corner allows user to change the chain. It will display the route it takes | Nothing will display because there is no route | It will reverse the tokens 
+### Testcase 1
+1. Select a token from the list| Enter any amount inside|  
+
+2. Chart should change immediately| Click on Graph / Route button (Red button) and it will display the route it take. You can verify this on https://app.1inch.io/#/1/classic/swap/ETH/DAI. Top right hand corner allows user to change the chain. It will display the route it takes | 
+
+### Testcase 2
+1. Enter token that do not share a common platform. i.e. BNB and Ethereum 
+
+2. Nothing will display because there is no route 
+
+### Testcase 3
+1. Click on the middle button that has both up arrow and bottom arrow
+2. It will reverse the tokens 
 
 
 <img src="./readme.image/NFTdashboard.PNG" style="width:100%">
 
 ## Testcases for NFT dashboard
-# #1 |#2 |
----| ---|
-Hover along the yellow zone of the NFT | After selecting the collection, perform a look up (Some collection do not have tokenID) Sellect BoredApeYatchClub for testing| --| --| 
-It will automatically select the Collection and update the card | It will perform a look up with token ID.https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/%3CtokenID%3E | 
+### Testcase 1
+1. Hover along the yellow zone of the NFT 
+2.  It will automatically select the Collection and update the card 
+### Testcase 2
+1. After selecting the collection, perform a look up (Some collection do not have tokenID) Sellect BoredApeYatchClub for testing
+2. It will perform a look up with token ID.https://opensea.io/assets/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d/%3CtokenID%3E | 
 
 
 # API
