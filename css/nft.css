@@ -140,7 +140,7 @@ table{
         display: flex;
         min-width: 30vw;
         width:90vw;
-        margin-top:1em;
+        margin-top:1em; 
     }
 
     /* Top of card */
@@ -285,8 +285,7 @@ table{
     /* Table */
 
     #nft-table{
-        min-width: auto;
-        width:100%;
+        width:100;
         height:60vh;
         overflow-y: auto;
         background-color: #fff7ed;

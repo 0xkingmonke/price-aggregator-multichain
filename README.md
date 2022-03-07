@@ -17,18 +17,52 @@ There are many smart contract blockchain that is built ontop of EVM (Ethereum vi
 There is a recent trend of trading art pieces on the blockchain - NFT(Non-fungible token). There isn't an easy way to do a lookup of the NFT based on it's token ID. Pachinko serves as an easy way to do a look up on ID and show the trade stats of the token on opensea.
 
 ## User's story
-Describe each target audience group and their characteristics
-People who have assets on chain and are computer literate. 
 
+Acceptance criteria
+User story |Acceptance|
+--- | --- | 
+ A middle aged man who wants to invest his money on NFT art pieces. | Analyse the collection trading data |
+Mid 20s young adult that is trying to swap his cryptocurrency for another cryptocurrency    |    Must be able to display the best route possible|
+Investment firms that is trying to analyse the routes that pachinko uses to swap the token | Must be able to display all routes in a visual manner |
+|| 
 
-Describe the user goals and the organization's goals
-
-
+## User goals
+User's purpose of using the website is to be more informed behind their trading decision, analyse the cryptocurrency market before trading.
 Include a URL to the deployed version of your project 
 
+## Font Palette
+
+The following choices of font were made. 
+
+Font family: `'Roboto', sans-serif;`
+
+# TESTING
+
+1 | 2 | 
+--- | --- | 
+1 | 2 | 
+--- | --- | 
+![alt text](http://url/to/img.png)
 
 # API
 Coingecko : https://api.coingecko.com/api/v3/ 
 1inch API : https://api.1inch.io/v4.0/
 Covalent API : https://api.covalenthq.com/v1/ 
 Opensea API : https://api.opensea.io/api/v1/ 
+
+# CREDITS AND ACKNOWLEDGMENT
+- Visual Studio Code
+- Git
+- GitHub
+- Netlify
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap v5.1
+- Font Awesome
+- Google Fonts
+- Apex Charts
+- Axios
+
+
+
