@@ -87,6 +87,9 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     document.querySelector('#dropdownMenuButton2').cryptoID = 'Ethereum'
     document.querySelector('#sell-amount').value = 100000
     checkQuotes('USD Coin','Ethereum', 100000)
+    await setTimeout(()=>{
+        updateEstimateSellValue(10000)
+    },2000)
 
 })
 

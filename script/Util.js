@@ -168,6 +168,7 @@ function updateBuyDropDown(targetValue) {
 }
 
 function updateEstimateSellValue(amount) {
+    console.log('updating')
     estimatePrice = document.querySelector('#estimate-sell-price').innerHTML
     estimateValue = estimatePrice * amount
     document.querySelector('#estimate-sell-value').innerHTML = `~$${estimateValue}`

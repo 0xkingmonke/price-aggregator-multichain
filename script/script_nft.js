@@ -17,4 +17,14 @@ document.querySelector('#card-search-bar-btn').addEventListener('click', async()
 
 })
 
+
+function navbarInit() {
+    navbar = document.querySelector('.nav-link')
+    navbar.onmouseover = () => {
+        navbar.click()
+    }
+}
+
+
+navbarInit()
 addSortEventListener()
