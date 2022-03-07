@@ -51,6 +51,9 @@ Font family: `'Roboto', sans-serif;`
 Select a token from the list| Enter any amount inside| Enter token that do not share a common platform. i.e. BNB and Ethereum | Click on the middle button that has both up arrow and bottom arrow
 |
 Chart should change immediately| Click on Graph / Route button (Red button) and it will display the route it take. You can verify this on https://app.1inch.io/#/1/classic/swap/ETH/DAI. Top right hand corner allows user to change the chain. It will display the route it takes | Nothing will display because there is no route | It will reverse the tokens 
+
+
+<img src="./readme.image/NFT_Dashboard.PNG" style="width:100%">
 # API
 Coingecko : https://api.coingecko.com/api/v3/ 
 1inch API : https://api.1inch.io/v4.0/
