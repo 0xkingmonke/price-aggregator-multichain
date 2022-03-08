@@ -129,11 +129,11 @@ function updateSellDropDown(targetValue) {
         childElement.innerHTML += `<a class="dropdown-item" >${item}</a>`
 
         childElement.addEventListener('click', (event) => { // Add event listener so change value
-            document.querySelector('#dropdownMenuButton2').cryptoID = item
+            document.querySelector('#dropdownMenuButton1').cryptoID = item
             document.querySelector('#dropdownMenuButton2').innerHTML = `<img src="${tokenJson[item]['image']}">` // Update the button value
             updateEstimatePrice(item, '#estimate-sell-price')
             generateChart(item, 7, '#sell-chart')
-            buyTicker = document.querySelector('#dropdownMenuButton1').cryptoID
+            buyTicker = document.querySelector('#dropdownMenuButton2').cryptoID
             generateTwoSeriesChart(item,buyTicker,7)
         })
 
@@ -154,12 +154,12 @@ function updateBuyDropDown(targetValue) {
         childElement = document.createElement('li')
         childElement.innerHTML += `<a class="dropdown-item" >${item}</a>`
         childElement.addEventListener('click', (event) => {
-            document.querySelector('#dropdownMenuButton1').cryptoID = item
+            document.querySelector('#dropdownMenuButton2').cryptoID = item
             console.log(tokenJson[item]['image'])
             document.querySelector('#dropdownMenuButton1').innerHTML = `<img src="${tokenJson[item]['image']}">`
             updateEstimatePrice(item, '#estimate-buy-price')
             generateChart(item, 7, '#buy-chart')
-            sellTicker = document.querySelector('#dropdownMenuButton2').cryptoID
+            sellTicker = document.querySelector('#dropdownMenuButton1').cryptoID
             generateTwoSeriesChart(sellTicker,item,7)
         })
         parentElement.appendChild(childElement)
